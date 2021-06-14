@@ -12,6 +12,13 @@ This site is primarily an asset cloud, where I put slides and other resources fo
 - [CodePen](https://codepen.io/cssence/)
 - [Twitter](https://twitter.com/cssence)
 
+## Presentations
+
+- “Why you would (not) want to build your own static site generator”: [Overview](https://austriacodes.github.io/vienna.html/#4---tuesday-june-28th), [Slides](https://cssence.github.io/slides-viennahtml2016/)  
+  – @ViennaHTML, 2016
+- “Diversity in Style“: [Overview](https://www.dotconferences.com/2016/12/matthias-beitl-diversity-in-style), [Slides](https://cssence.github.io/slides-dotcss2016/), [Video](https://youtu.be/JaYNrmH7Oyg)  
+  – @dotCSS, 2016
+
 ## Resources
 
 | File                   | Mime Type      |  Dimensions  |      Size |
