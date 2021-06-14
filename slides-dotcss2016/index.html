@@ -1,0 +1,62 @@
+<!doctype html>
+<html class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Diversity in Style | @cssence | dotCSS</title>
+		<meta name="description" content="Websites have become boring - let’s reverse that trend">
+		<meta name="author" content="Matthias Beitl">
+		<style>
+* { box-sizing: inherit; }
+html { box-sizing: border-box; }
+body { margin: 0; padding: 1vw; background-color: #303235; font-family: sans-serif !important; }
+img { width: 100%; margin: 0 !important; border: .5vw solid #303235 !important; }
+a { color: inherit !important; text-decoration: inherit; }
+p { position: relative !important; margin: 0 auto !important; padding: 0 !important; color: #909396; text-align: center; }
+.tweet { width: 85%; }
+p { padding-top: 2.5vw !important; }
+.ref,
+.author { position: absolute !important; top: 0 !important; font-size: 1.25vw !important; }
+.ref { left: 1vw !important; }
+.author { right: 1vw !important; }
+.rel-me { margin: 2em auto; max-width: 19.25em; color: #c6c9cc !important; font-size: 2.75vw; text-align: left; }
+.rel-me a:last-child::before { content: "@"; visibility: hidden; }
+.rel-me abbr,
+h1 { color: #fff; }
+h1 { font-family: serif !important; font-size: 8vw; text-align: center; text-transform: none !important; }
+h1::before { content: "«"; color: #909396; }
+h1::after { content: "»"; color: #909396; }
+section { margin: 0 auto; }
+section[id]::before { content: ""; display: block; height: 6em; }
+section:first-child { padding-top: 20vh; min-height: 100vh; }
+nav { position: fixed; top: 0; left: 0; padding: .5em; }
+nav a { display: inline-block; margin-left: 1em; padding: .5em; background: #fff; border: 1px solid #000; border-radius: .25em; color: #000 !important; }
+[data-alternate]::before { content: attr(data-alternate); position: relative; top: -2px; margin-right: 1ex; padding: 0 .25em; background: #000; border: 1px solid #000; border-radius: .25em; color: #fff; font-size: 75%; }
+.no-js [data-alternate="JS"],
+.reveal[role="application"] ~ nav { display: none; }
+.reveal[role="application"] .ref { left: 3% !important; }
+.reveal[role="application"] .author { right: 3% !important; }
+.reveal[role="application"] { background-color: #000 !important; }
+.reveal { background-color: #303235 !important; transition: background-color: .3s linear; }
+@media (min-width: 1024px) { section + section { max-width: 70%; } }
+.reveal[role="application"] section { max-width: none !important; }
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="/">
+					<h1>diversity in style</h1>
+					<p class="rel-me"><a href="https://twitter.com/cssence">@<abbr>css</abbr>ence</a><br><a href="http://cssence.com/"><abbr>css</abbr>ence.com</a></p>
+				</section>
+				<section id="/1"><p class="tweet"><img src="tweet.sara.png" alt="A tweet by Sara Soueidan from early 2016; in her opinion websites have become boring."> <a class="ref" href="https://twitter.com/SaraSoueidan/status/690214878578110464">https://twitter.com/SaraSoueidan/status/690214878578110464</a> <a class="author" href="https://twitter.com/SaraSoueidan">@SaraSoueidan</a></p></section>
+				<section id="/2"><p><img src="website.adventurega-bootstrap.png" alt="The fun project by Jeremy Karbowski illustrates that many websites look alike these days."> <a class="ref" href="http://adventurega.me/bootstrap/">http://adventurega.me/bootstrap/</a> <a class="author" href="https://twitter.com/JeremyKarbowski">@JeremyKarbowski</a></p></section>
+				<section id="/3"><p><img src="website.polarpolls.png" alt="The tablet version of @polarpolls was a radical approach when it launched."> <a class="ref" href="http://polarb.com/">http://polarb.com/ †</a> <a class="author" href="https://twitter.com/polarpolls">@polarpolls</a></p></section>
+				<section id="/4"><p><img src="website.cssence.png" alt="Adding visual imbalance to cssence.com, on purpose."> <a class="ref" href="http://cssence.com/">http://cssence.com/</a> <a class="author" href="https://twitter.com/cssence">@cssence</a></p></section>
+				<section id="/5"><p><img src="website.dpgraph.png" alt="Design diversity does NOT mean we should bring back website design from the last century."> <a class="ref" href="http://www.dpgraph.com/">http://www.dpgraph.com/</a></p></section>
+			</div>
+		</div>
+		<nav><a href="download.pdf" data-alternate="PDF">Download</a> <a href="#interactive" data-alternate="JS">Interactive</a></nav>
+		<script src="all.min.js"></script>
+	</body>
+</html>
