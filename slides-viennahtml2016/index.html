@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>“Why you would (not) want to build your own static site generator” @viennahtml</title>
+<style>
+*,*::before,*::after{box-sizing:inherit}
+html{box-sizing:border-box;background:#000;color:#c0c4c8;font:300 2vw/1.125 "Helvetica Neue", sans-serif}
+body{margin:0;padding:0}
+.slide{overflow:hidden;position:relative;height:100vh;width:100vw;padding:4em}
+.slide::before{content:"";position:absolute;z-index:-1;top:50vh;left:50vw;height:110vw;width:110vw;background:url(logo.viennahtml.png) center no-repeat;background-size:contain;opacity:.1;-webkit-filter:grayscale(100%);filter:grayscale(100%);image-rendering: pixelated;transform:translate(-55vw, -55vw) rotate(-12deg);transform-origin:center}
+main{position:relative}
+h1,ol,#intro time,b{color:#fff}
+.title{margin:0 0 1em;font-family:serif;font-size:250%;font-weight:inherit}
+.title::before{content:open-quote;position:absolute;width:1em;margin-left:-1em;text-align:right}
+.title::after{content:close-quote}
+.title:not(h1){opacity:.6}
+h2,dt{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+dd{margin:.25em 0}
+a{color:inherit;font:inherit;text-decoration:inherit}
+b{font-weight:inherit}
+img{max-width:100%}
+ol{width:max-content;margin:0 auto;font-size:250%}
+li{margin:.5em 0}
+sup{position:relative;top:0;vertical-align:baseline}
+iframe{height:60vmin;border:0}
+iframe,figure{width:90vmin;margin:0 auto}
+figure span,
+figure img{display:block;margin:1em auto}
+figure iframe,figure img{margin-top:-1em;box-shadow:0 .125em 1em rgba(240,248,255,.4)}
+figure small{display:block;margin-top:.5ex;text-align:right}
+#intro section{position:absolute;bottom:0;left:0;margin:4em}
+#speaker{right:-2em;left:auto;text-align:right}
+#empty p{text-align:right}
+small{font-size:66.7%;opacity:.6}
+.navigate{position:absolute;right:2ex;bottom:2ex;margin:0;color:#fff;opacity:.1}
+.navigate a{display:inline-block;width:1em;text-align:center}
+.logo{display:inline-block;overflow:visible;height:3em;width:3em;margin-top:.5ex}
+.stem{fill:#fff}
+.mood{fill:#d34b6c}
+</style>
+</head>
+<body>
+<div class="slide" id="intro">
+<h1 class="title">Why you would (not) want to<br>build your own static site generator</h1>
+<section id="event">
+<h2>Event</h2>
+<dl>
+<dt>Date</dt><dd><time datetime="2016-06-28">June 28, 2016</time></dd>
+<dt>Agenda</dt><dd><a href="http://viennahtml.github.io/">viennahtml.github.io</a></dd>
+<dt>Host</dt><dd><a href="https://twitter.com/viennahtml/">@viennahtml</a></dd>
+<dt>Logo</dt><dd><img class="logo" src="logo.viennahtml.png" alt="ViennaHTML logo"></dd>
+</dl>
+</section>
+<section id="speaker">
+<h2>Speaker</h2>
+<dl>
+<dt>Name</dt><dd><a href="http://matthias.beitl.net/">Matthias Beitl</a></dd>
+<dt>Website</dt><dd><a href="http://cssence.com/"><b><abbr>css</abbr>ence</b>.com</a></dd>
+<dt>Twitter</dt><dd><a href="https://twitter.com/cssence">@<b><abbr>css</abbr>ence</b></a></dd>
+<dt>Logo</dt><dd><img src="../logo.svg" alt="CSSence logo"></dd>
+</dl>
+</section>
+<p class="navigate">1 / 5 <a data-scroll accesskey="2" href="#empty">&gt;</a></p>
+</div>
+<h2>Slides (Content)</h2>
+<div class="slide" id="empty">
+<p class="note"><small>This slide has no content. By design.</small></p>
+<p class="navigate"><a data-scroll href="#intro">&lt;</a> 2 / 5 <a data-scroll accesskey="3" href="#reminder">&gt;</a></p>
+</div>
+<div class="slide" id="reminder">
+<figure>
+<img src="cssday-ppk.jpg" alt="If you can’t do it without tools, you’re not a web developer">
+<figcaption><span><a href="https://twitter.com/ppk">Peter-Paul Koch (@ppk)</a> at <a href="http://cssday.nl/2016">cssday.nl, <time>2016</time></a></span><small> // Image by @cogo_digital &mdash; <a href="https://twitter.com/cogo_digital/status/743401844303630336">twitter.com/cogo_digital/status/743401844303630336</a></small></figcaption>
+</figure>
+<p class="navigate"><a data-scroll href="#empty">&lt;</a> 3 / 5 <a data-scroll accesskey="4" href="#competition">&gt;</a></p>
+</div>
+<div class="slide" id="competition">
+<figure>
+<iframe src="http://www.staticgen.com/"></iframe>
+<figcaption><span>Compilation of static site generators</span><small> // <a href="http://www.staticgen.com/">www.staticgen.com</a></small></figcaption>
+</figure>
+<p class="navigate"><a data-scroll href="#competition">&lt;</a> 4 / 5 <a data-scroll accesskey="5" href="#conclusion">&gt;</a></p>
+</div>
+<div class="slide" id="conclusion">
+<div class="title">Why you would (not) want to<br>build your own static site generator</div>
+<ol>
+<li>Tailor-made</li>
+<li>Knowledge<sup>&#8599;</sup></li>
+<li>Collaboration</li>
+</ol>
+<p class="navigate"><a data-scroll href="#reminder">&lt;</a> 5 / 5 <a data-scroll accesskey="1" href="#intro">&gt;</a></p>
+</div>
+<script src="smooth-scroll.min.js"></script>
+<script>smoothScroll.init()</script>
+</body>
+</html>
