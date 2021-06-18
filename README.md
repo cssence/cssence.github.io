@@ -1,5 +1,6 @@
-For reasons unknown, you’ve arrived at **cssence.github.io**.
-This site is primarily an asset cloud, where I put slides and other resources for quick access and posterity.
+# cssence.github.io
+
+For reasons unknown, you’ve arrived at **cssence.github.io**. This site is primarily an asset cloud, where I put slides and other resources for quick access and posterity.
 
 ## Links
 
@@ -25,14 +26,14 @@ This site is primarily an asset cloud, where I put slides and other resources fo
 
 | File                                        | Mime Type      |  Dimensions  |     Size |
 | :------------------------------------------ | :------------- | :----------: | -------: |
-| [avatar.jpg](avatar.jpg)                    | image/jpeg     |   300×300    |  13.3 KB |
-| [favicon.ico](favicon.ico)                  | image/x-icon   | 16×16, 32×32 |   5.4 KB |
-| [logo.svg](logo.svg)                        | image/svg+xml  |     n/a      |   0.4 KB |
-| [logo-32-round.png](logo-32-round.png)      | image/png      |    32×32     |   1.1 KB |
-| [logo-300.png](logo-300.png)                | image/png      |   300×300    |   8.1 KB |
-| [logo-300-center.png](logo-300-center.png)  | image/png      |   300×300    |   8.1 KB |
-| [logo-gravatar.png](logo-gravatar.png)      | image/png      |  1200×1200   |   8.4 KB |
-| [wallpaper.png](wallpaper.png)              | image/png      |   400×164    |   4.3 KB |
+| [public/avatar.jpg](avatar.jpg)                    | image/jpeg     |   300×300    |  13.3 KB |
+| [public/favicon.ico](favicon.ico)                  | image/x-icon   | 16×16, 32×32 |   5.4 KB |
+| [public/logo.svg](logo.svg)                        | image/svg+xml  |     n/a      |   0.4 KB |
+| [public/logo-32-round.png](logo-32-round.png)      | image/png      |    32×32     |   1.1 KB |
+| [public/logo-300.png](logo-300.png)                | image/png      |   300×300    |   8.1 KB |
+| [public/logo-300-offset.png](logo-300-offset.png)  | image/png      |   300×300    |   8.1 KB |
+| [public/logo-gravatar.png](logo-gravatar.png)      | image/png      |  1200×1200   |   8.4 KB |
+| [public/wallpaper.png](wallpaper.png)              | image/png      |   400×164    |   4.3 KB |
 
 ## License
 
