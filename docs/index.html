@@ -3,50 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>@cssence asset cloud</title>
-<style>
-*{margin:0;font-size:inherit}
-*:focus{outline:1px dashed #d34b6c}
-html{background-color:#000;color:#eaeaeb;font:100%/1.5 monospace}
-body{padding:1.5em 1em}
-main{max-width:70ch;margin:0 auto}
-h1{color:#fff}
-h1,
-h2,
-ul,
-div,
-:not(li)>p{margin-bottom:1.5em}
-h2{margin-top:3em;color:#d34b6c}
-img{width:3em;height:3em;margin-left:-.375em;vertical-align:middle}
-a{color:inherit;text-decoration-color:#d34b6c}
-ul{list-style-type:square;padding-left:0}
-ul,
-div{margin:0 -2ch}
-div{overflow-x:auto;overflow-y:visible;padding-bottom:1.5em}
-table{width:100%;border-collapse:collapse}
-th,
-td{border:0;white-space:nowrap}
-li,
-th,
-td{padding:.75em 2ch calc(.75em - 1px) 2ch;border-bottom:1px solid #000}
-li,
-td{background-color:#eaeaeb;color:#000}
-th{padding-top:0;padding-bottom:0;font-weight:inherit;text-align:left}
-tr>*+*{padding-left:0}
-tr>*:nth-child(3){text-align:center}
-tr>*:nth-child(4){text-align:right}
-li:focus-within,
-li:hover,
-tr:focus-within td,
-tr:hover td{background-color:#fff}
-small{color:#000a;font-size:inherit}
-@media (min-width:40ch){#links + ul a::before{content:attr(href);float:right;width:28ch;font-weight:400}}
-</style>
+<title>@CSSence asset cloud</title>
+<link href="screen.css" rel="stylesheet" media="screen">
 </head>
 <body>
 <main>
 <h1><img src="logo.svg" alt=""> cssence.github.io</h1>
 <p>For reasons unknown, you’ve arrived at <strong>cssence.github.io</strong>. This site is primarily an asset cloud, where I put slides and other resources for quick access and posterity.</p>
+<h2 id="presentations">Presentations</h2>
+<ul>
+<li><h3>“Why you would (not) want to build your own static site generator”</h3><p><a href="https://austriacodes.github.io/vienna.html/#4---tuesday-june-28th">Overview</a>, <a href="https://cssence.github.io/slides-viennahtml2016/">Slides</a></p><p>@ViennaHTML, 2016<br><small>Vienna, Austria</small></p></li>
+<li><h3>“Diversity in Style”</h3><p><a href="https://www.dotconferences.com/2016/12/matthias-beitl-diversity-in-style">Overview</a>, <a href="https://cssence.github.io/slides-dotcss2016/">Slides</a>, <a href="https://youtu.be/JaYNrmH7Oyg">Video</a></p><p>@dotCSS, 2016<br><small>Paris, France</small></p></li>
+</ul>
+<h2 id="resources">Resources</h2>
+<div>
+<table>
+<thead>
+<tr><th>File</th><th>Dimensions</th><th>Size</th>
+</thead>
+<tbody>
+<tr><td><a download href="avatar.jpg">avatar.jpg</a></td><td>300×300</td><td>13.3 KB</td></tr>
+<tr><td><a download href="logo.svg">logo.svg</a></td><td>n/a</td><td>0.4 KB</td></tr>
+<tr><td><a download href="logo-32-round.png">logo-32-round.png</a></td><td>32×32</td><td>1.1 KB</td></tr>
+<tr><td><a download href="logo-300.png">logo-300.png</a></td><td>300×300</td><td>8.1 KB</td></tr>
+<tr><td><a download href="logo-300-offset.png">logo-300-offset.png</a></td><td>300×300</td><td>8.1 KB</td></tr>
+<tr><td><a download href="logo-gravatar.png">logo-gravatar.png</a></td><td>1200×1200</td><td>8.4 KB</td></tr>
+<tr><td><a download href="wallpaper.png">wallpaper.png</a></td><td>400×164</td><td>4.3 KB</td></tr>
+</tbody>
+</table>
+</div>
 <h2 id="links">Links</h2>
 <ul>
 <li><a href="https://cssence.com/">Website</a></li>
@@ -55,28 +40,6 @@ small{color:#000a;font-size:inherit}
 <li><a href="https://codepen.io/cssence/">CodePen</a></li>
 <li><a href="https://twitter.com/cssence">Twitter</a></li>
 </ul>
-<h2 id="presentations">Presentations</h2>
-<ul>
-<li><h3>“Why you would (not) want to build your own static site generator”</h3><p><a href="https://austriacodes.github.io/vienna.html/#4---tuesday-june-28th">Overview</a>, <a href="https://cssence.github.io/slides-viennahtml2016/">Slides</a></p><p>– @ViennaHTML, 2016, <small>Vienna, Austria</small></p></li>
-<li><h3>“Diversity in Style”</h3><p><a href="https://www.dotconferences.com/2016/12/matthias-beitl-diversity-in-style">Overview</a>, <a href="https://cssence.github.io/slides-dotcss2016/">Slides</a>, <a href="https://youtu.be/JaYNrmH7Oyg">Video</a></p><p>– @dotCSS, 2016, <small>Paris, France</small></p></li>
-</ul>
-<h2 id="resources">Resources</h2>
-<div>
-<table>
-<thead>
-<tr><th>File</th><th>Mime Type</th><th>Dimensions</th><th>Size</th>
-</thead>
-<tbody>
-<tr><td><a download href="avatar.jpg">avatar.jpg</a></td><td>image/jpeg</td><td>300×300</td><td>13.3 KB</td></tr>
-<tr><td><a download href="logo.svg">logo.svg</a></td><td>image/svg+xml</td><td>n/a</td><td>0.4 KB</td></tr>
-<tr><td><a download href="logo-32-round.png">logo-32-round.png</a></td><td>image/png</td><td>32×32</td><td>1.1 KB</td></tr>
-<tr><td><a download href="logo-300.png">logo-300.png</a></td><td>image/png</td><td>300×300</td><td>8.1 KB</td></tr>
-<tr><td><a download href="logo-300-offset.png">logo-300-offset.png</a></td><td>image/png</td><td>300×300</td><td>8.1 KB</td></tr>
-<tr><td><a download href="logo-gravatar.png">logo-gravatar.png</a></td><td>image/png</td><td>1200×1200</td><td>8.4 KB</td></tr>
-<tr><td><a download href="wallpaper.png">wallpaper.png</a></td><td>image/png</td><td>400×164</td><td>4.3 KB</td></tr>
-</tbody>
-</table>
-</div>
 <h2 id="license">License</h2>
 <p>
 Copyright <a href="https://cssence.com/">Matthias Zöchling</a>.
