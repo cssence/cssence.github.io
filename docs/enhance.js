@@ -39,10 +39,11 @@ enhance('resources', 'assets.json')
 		const url = new URL(resource.url);
 		const href = url.host === 'cssence.github.io' ? url.pathname : resource.url;
 		const name = url.pathname.split('/').pop();
+		const type = resource.mimeType;
 		const dims = resource.width ? `${resource.width}×${resource.height}` : 'n/a';
 		const size = typeof resource.size === 'number' ? `${Math.round(resource.size / 100) / 10} KB` : '?';
-		tr.push(`<tr><td><a download href="${href}">${name}</a></td><td>${dims}</td><td><data value="${resource.size}">${size}</data></td></tr>`);
+		tr.push(`<tr><td><a download href="${href}">${name}</a></td><td>${type}</td><td>${dims}</td><td><data value="${resource.size}">${size}</data></td></tr>`);
 	});
-	finish('resources', `<div><table aria-labelledby="resources"><thead><tr><th>File</th><th>Dimensions</th><th>Size</th></thead><tbody>${tr.join('')}</tbody></table></div>`);
+	finish('resources', `<div><table aria-labelledby="resources"><thead><tr><th>File</th><th>Mime Type</th><th>Dimensions</th><th>Size</th></thead><tbody>${tr.join('')}</tbody></table></div>`);
 })
 .catch((err) => finish('resources', null, err))

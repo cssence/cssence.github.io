@@ -1,3 +1,5 @@
+@media screen { /* SCREEN start */
+
 *,
 *::before,
 *::after {
@@ -104,7 +106,10 @@ tbody tr {
 [aria-labelledby="resources"] tr {
 	grid-template-columns: 1fr 10ch 14ch;
 }
-[aria-labelledby="resources"] td:nth-child(2)::after {
+[aria-labelledby="resources"] tr > *:nth-child(2) {
+	display: none;
+}
+[aria-labelledby="resources"] td:nth-child(3)::after {
 	content: ' ';
 	white-space: pre;
 }
@@ -150,9 +155,60 @@ small::before {
 	animation: loading .7s linear infinite;
 }
 
-[aria-labelledby="resources"] tr > *:nth-child(2) {
+} /* SCREEN end */
+
+[aria-labelledby="resources"] tr > *:nth-child(3) {
 	text-align: center;
 }
-[aria-labelledby="resources"] tr > *:nth-child(3) {
+[aria-labelledby="resources"] tr > *:nth-child(4) {
 	text-align: right;
 }
+
+@media print { /* PRINT start */
+
+html {
+	font: 12pt/1.4 serif;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+img {
+	display: none;
+}
+h1 {
+	margin: 0 0 2mm;
+	font-size: 40pt;
+}
+h2 {
+	margin: 6mm 0 2mm;
+	font-size: 18pt;
+}
+table,
+p {
+	margin: 2mm 0;
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+h1,
+h2,
+p,
+th {
+	padding: 0 calc(2mm + 1px);
+	text-align: left;
+}
+tr > *:first-child {
+	width: 40%;
+}
+td {
+	padding: .5mm 2mm;
+	border: 1px solid #aaa;
+	vertical-align: bottom;
+}
+[aria-labelledby="presentations"] tr > *:nth-child(2) {
+	display: none;
+}
+
+} /* PRINT end */
