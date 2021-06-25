@@ -14,6 +14,7 @@
 	outline: 1px dashed #d34b6c;
 }
 html {
+	--w: 69ch;
 	box-sizing: border-box;
 	background-color: #000;
 	color: #eaeaeb;
@@ -26,7 +27,7 @@ body {
 	background: repeat-x url('data:image/gif;base64,R0lGODlhZAAEAPECANNLbOrq6/v7+wAAACH5BAUKAAIALAAAAABkAAQAAAIrVIynyesNn4x0WgqE3vtw7n1aKJKfCYqdOrIIm7nyTJf1jatxzt9oDxQBCgA7');
 }
 main {
-	max-width: 67ch;
+	max-width: var(--w);
 	margin: 0 auto;
 }
 h1 {
@@ -62,7 +63,7 @@ div {
 	margin: 0 -2ch;
 }
 table {
-	width: 71ch;
+	width: calc(var(--w) + 4ch);
 }
 table,
 thead,

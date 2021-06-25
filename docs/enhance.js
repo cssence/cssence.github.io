@@ -23,9 +23,9 @@ enhance('links', 'https://cv.cssence.com/bookmarks.json')
 	const tr = [];
 	json.forEach((link) => {
 		const url = new URL(link.url);
-		console.log(link);
 		const urlDisplay = url.pathname === '/' ? url.host : [url.host, url.pathname].join('');
-		tr.push(`<tr><td><a href="${link.url}">${link.name}</a></td><td>${urlDisplay}</td></tr>`);
+		const rel = url.host.endsWith('cssence.com') ? '' : ' rel="noreferrer noopener"';
+		tr.push(`<tr><td><a${rel} href="${link.url}">${link.name}</a></td><td>${urlDisplay}</td></tr>`);
 	});
 	finish('links', `<div><table aria-labelledby="links"><thead><tr><th>Name</th><th>URL</th></thead><tbody>${tr.join('')}</tbody></table></div>`);
 })
