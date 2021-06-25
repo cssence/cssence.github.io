@@ -1,0 +1,25 @@
+[
+	{
+		"title": "Why you would (not) want to build your own static site generator",
+		"links": [
+			{"url": "https://austriacodes.github.io/vienna.html/#4---tuesday-june-28th", "name": "Intro"},
+			{"url": "https://cssence.github.io/slides-viennahtml2016/", "name": "Slides"},
+			{"url": "https://cssence.com/2016/viennahtml", "name": "Notes"}
+		],
+		"event": "@ViennaHTML",
+		"location": "Vienna, Austria",
+		"year": 2016
+	}, {
+		"title": "Diversity in Style",
+		"links": [
+			{"url": "https://www.dotconferences.com/2016/12/matthias-beitl-diversity-in-style", "name": "Intro"},
+			{"url": "https://cssence.github.io/slides-dotcss2016/", "name": "Slides"},
+			{"url": "https://cssence.com/2016/dotcss", "name": "Notes"},
+			{"url": "https://youtu.be/JaYNrmH7Oyg", "name": "Video"},
+			{"url": "https://cssence.com/2016/diversity-in-style", "name": "Transcript"}
+		],
+		"event": "@dotCSS",
+		"location": "Paris, France",
+		"year": 2016
+	}
+]

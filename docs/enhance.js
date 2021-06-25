@@ -1,49 +1,52 @@
 console.info('https://en.wikipedia.org/wiki/Progressive_enhancement');
 
-const enhance = (heading, url) => {
-	document.querySelector(`#${heading}`).classList.add('loading');
-	return fetch(url);
+const enhance = (heading, url, columns, getData) => {
+	const loading = (finished) => {
+		document.querySelector(`#${heading}`).classList[finished ? 'remove' : 'add']('loading');
+	};
+	loading();
+	return fetch(url)
+		.then((response) => response.json())
+		.then((json) => {
+			const rows = getData(json).map((row) => `<td>${row.join('</td><td>')}</td>`);
+			const thead = `<thead><tr><th>${columns.join('</th><th>')}</th></tr></thead>`;
+			const tbody = `<tbody><tr>${rows.join('</tr><tr>')}</tr></tbody>`;
+			document.querySelector(`#${heading} + *`).outerHTML = `<div><table aria-labelledby="${heading}">${thead}${tbody}</table></div>`;
+			loading('finished');
+		})
+		.catch((err) => {
+			if (location.search === '?debug') {
+				console.error(err);
+			}
+			console.warn(`Could not load #${heading}.`);
+			loading('failed');
+		});
 };
 
-const finish = (heading, content, err) => {
-	if (err) {
-		if (location.search === '?debug') {
-			console.error(err);
-		}
-		console.warn(`Could not load ${heading}.`);
-	} else {
-		document.querySelector(`#${heading} + p`).outerHTML = content;
-	}
-	document.querySelector(`#${heading}`).classList.remove('loading');
-};
-
-enhance('links', 'https://cv.cssence.com/bookmarks.json')
-.then((response) => response.json())
-.then((json) => {
-	const tr = [];
-	json.forEach((link) => {
+enhance('presentations', '/slides.json', ['Talk', 'Links', 'Event', 'Location'], (json) => json.map((talk) => {
+	const links = talk.links.map((link) => {
 		const url = new URL(link.url);
-		const urlDisplay = url.pathname === '/' ? url.host : [url.host, url.pathname].join('');
-		const rel = url.host.endsWith('cssence.com') ? '' : ' rel="noreferrer noopener"';
-		tr.push(`<tr><td><a${rel} href="${link.url}">${link.name}</a></td><td>${urlDisplay}</td></tr>`);
+		const isSameOrigin = url.host === 'cssence.github.io';
+		const rel = isSameOrigin || url.host.endsWith('cssence.com') ? '' : ' rel="noreferrer noopener"';
+		const href = isSameOrigin ? url.pathname : link.url;
+		return `<a${rel} href="${href}">${link.name}</a>`;
 	});
-	finish('links', `<div><table aria-labelledby="links"><thead><tr><th>Name</th><th>URL</th></thead><tbody>${tr.join('')}</tbody></table></div>`);
-})
-.catch((err) => finish('links', null, err))
+	return [`<em>${talk.title}</em>`, links.join(', '), talk.event, talk.location];
+}));
 
-enhance('resources', 'assets.json')
-.then((response) => response.json())
-.then((json) => {
-	const tr = [];
-	json.forEach((resource) => {
-		const url = new URL(resource.url);
-		const href = url.host === 'cssence.github.io' ? url.pathname : resource.url;
-		const name = url.pathname.split('/').pop();
-		const type = resource.mimeType;
-		const dims = resource.width ? `${resource.width}×${resource.height}` : 'n/a';
-		const size = typeof resource.size === 'number' ? `${Math.round(resource.size / 100) / 10} KB` : '?';
-		tr.push(`<tr><td><a download href="${href}">${name}</a></td><td>${type}</td><td>${dims}</td><td><data value="${resource.size}">${size}</data></td></tr>`);
-	});
-	finish('resources', `<div><table aria-labelledby="resources"><thead><tr><th>File</th><th>Mime Type</th><th>Dimensions</th><th>Size</th></thead><tbody>${tr.join('')}</tbody></table></div>`);
-})
-.catch((err) => finish('resources', null, err))
+enhance('links', 'https://cv.cssence.com/bookmarks.json', ['Name', 'URL'], (json) => json.map((link) => {
+	const url = new URL(link.url);
+	const urlDisplay = url.pathname === '/' ? url.host : [url.host, url.pathname].join('');
+	const rel = url.host.endsWith('cssence.com') ? '' : ' rel="noreferrer noopener"';
+	return [`<a${rel} href="${link.url}">${link.name}</a>`, urlDisplay];
+}));
+
+enhance('resources', '/assets.json', ['File', 'Mime Type', 'Dimensions', 'Size'], (json) => json.map((resource) => {
+	const url = new URL(resource.url);
+	const href = url.host === 'cssence.github.io' ? url.pathname : resource.url;
+	const name = url.pathname.split('/').pop();
+	const type = resource.mimeType;
+	const dims = resource.width ? `${resource.width}×${resource.height}` : 'n/a';
+	const size = typeof resource.size === 'number' ? `${Math.round(resource.size / 100) / 10} KB` : '?';
+	return [`<a download href="${href}">${name}</a>`, type, dims, `<data value="${resource.size}">${size}</data>`];
+}));
