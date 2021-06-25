@@ -1,11 +1,18 @@
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
 * {
 	margin: 0;
 	font-size: inherit;
+	font-style: inherit;
 }
 *:focus {
 	outline: 1px dashed #d34b6c;
 }
 html {
+	box-sizing: border-box;
 	background-color: #000;
 	color: #eaeaeb;
 	font: 16px/1.5 monospace;
@@ -14,9 +21,10 @@ body {
 	overflow-x: auto;
 	overflow-y: scroll;
 	padding: 1.5em 2ch;
+	background: repeat-x url('data:image/gif;base64,R0lGODlhZAAEAPECANNLbOrq6/v7+wAAACH5BAUKAAIALAAAAABkAAQAAAIrVIynyesNn4x0WgqE3vtw7n1aKJKfCYqdOrIIm7nyTJf1jatxzt9oDxQBCgA7');
 }
 main {
-	max-width: 70ch;
+	max-width: 67ch;
 	margin: 0 auto;
 }
 h1 {
@@ -46,88 +54,85 @@ a {
 	color: inherit;
 	text-decoration-color: #d34b6c;
 }
-ul {
-	list-style-type: square;
-	padding-left: 0;
-}
-ul,
-div {
-	margin: 0 -2ch;
-}
 div {
 	overflow-x: auto;
 	overflow-y: visible;
+	margin: 0 -2ch;
 }
 table {
-	width: 100%;
-	border-collapse: collapse;
+	width: 71ch;
 }
-th,
-td {
-	border: 0;
-	white-space: nowrap;
+table,
+thead,
+tbody {
+	display: block;
 }
-li,
-th,
-td {
-	padding: 0.75em 2ch calc(0.75em - 1px) 2ch;
-	border-bottom: 1px solid #000;
-}
-li,
-td {
-	background-color: #eaeaeb;
-	color: #000;
+tr {
+	display: grid;
+	gap: 0 2ch;
+	padding: 0 2ch;
 }
 th {
-	padding-top: 0;
-	padding-bottom: 0;
 	font-weight: inherit;
 	text-align: left;
 }
-tr > * + * {
-	padding-left: 0;
+tbody tr {
+	padding-top: 0.75em;
+	padding-bottom: calc(0.75em - 1px);
+	background-color: #eaeaeb;
+	border-bottom: 1px solid #000;
+	color: #000;
 }
-tr > *:nth-child(2) {
-	text-align: center;
+[aria-labelledby="presentations"] tr {
+	grid-template-areas: 'title event' 'links location';
+	grid-template-columns: 1fr 26ch;
 }
-tr > *:nth-child(3) {
-	text-align: right;
+[aria-labelledby="presentations"] tr > *:first-child {
+	grid-area: title;
+	font-weight: 700;
 }
-li:focus-within,
-li:hover,
-tr:focus-within td,
-tr:hover td {
+[aria-labelledby="presentations"] tr > *:nth-child(2) {
+	grid-area: links;
+}
+[aria-labelledby="presentations"] tr > *:nth-child(3) {
+	align-self: end;
+	grid-area: event;
+}
+[aria-labelledby="presentations"] tr > *:last-child {
+	grid-area: location;
+}
+[aria-labelledby="resources"] tr {
+	grid-template-columns: 1fr 10ch 14ch;
+}
+[aria-labelledby="resources"] td:nth-child(2)::after {
+	content: ' ';
+	white-space: pre;
+}
+[aria-labelledby="links"] tr {
+	grid-template-columns: 1fr 26ch;
+}
+tbody tr:focus-within,
+tbody tr:hover {
 	background-color: #fff;
 }
-#presentations + ul p:last-child {
-	text-align: right;
+em {
+	display: block;
+	max-width: calc(100vw - 4ch);
+	text-indent: -1ch;
 }
-#presentations + ul small::after {
+em::before {
+	content: open-quote;
+}
+em::after {
+	content: close-quote;
+}
+small::before {
 	content: '';
 	display: inline-block;
 	width: 2ch;
 	height: 1.125ch;
-	background: no-repeat url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"%3E%3Cpath fill="%23000" d="M15.938 32c0 0-9.938-14.062-9.938-20.062 0-11.813 9.938-11.938 9.938-11.938s10.062 0.125 10.062 11.875c0 6.187-10.062 20.125-10.062 20.125zM16 6c-2.209 0-4 1.791-4 4s1.791 4 4 4 4-1.791 4-4-1.791-4-4-4z"%3E%3C/path%3E%3C/svg%3E') calc(100% + 0.0625ch) center / 1.125ch 1.125ch;
+	background: no-repeat url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"%3E%3Cpath fill="%23000" d="M15.938 32c0 0-9.938-14.062-9.938-20.062 0-11.813 9.938-11.938 9.938-11.938s10.062 0.125 10.062 11.875c0 6.187-10.062 20.125-10.062 20.125zM16 6c-2.209 0-4 1.791-4 4s1.791 4 4 4 4-1.791 4-4-1.791-4-4-4z"%3E%3C/path%3E%3C/svg%3E') -0.0625ch center / 1.125ch 1.125ch;
 	/* Shoutout to Broccolidry on iconmoon.io for the map marker icon <3 */
-}
-@media (min-width: 32em) {
-	#links + ul a::before {
-		content: attr(href);
-	}
-	#links + ul a::before,
-	#presentations + ul small {
-		float: right;
-		width: 27ch;
-		white-space: nowrap;
-	}
-	#presentations + ul br {
-		display: none;
-	}
-}
-@media (max-width: 19.95em) {
-	html {
-		font-size: 4.5vw;
-	}
 }
 @keyframes loading {
 	0% { transform: rotate(0); }
@@ -143,4 +148,11 @@ tr:hover td {
 	border-radius: 50%;
 	border-top-color: #eaeaeb;
 	animation: loading .7s linear infinite;
+}
+
+[aria-labelledby="resources"] tr > *:nth-child(2) {
+	text-align: center;
+}
+[aria-labelledby="resources"] tr > *:nth-child(3) {
+	text-align: right;
 }
