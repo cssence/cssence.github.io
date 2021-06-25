@@ -8,10 +8,11 @@ Websites have become boring. The fun project http://adventurega.me/bootstrap/ by
 
 dotCSS 2016  
 @dotCSS  
-http://2016.dotcss.io/
+[https://2016.dotcss.io/](http://2016.dotcss.io/)
+
 
 ## Author/Speaker
 
 Matthias Beitl  
 @cssence  
-http://cssence.com/
+[https://cssence.com/](http://cssence.com/)
