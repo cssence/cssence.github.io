@@ -1,26 +1,25 @@
 console.info('https://en.wikipedia.org/wiki/Progressive_enhancement');
 
-const enhance = (heading, url, columns, getData) => {
+const enhance = async (heading, url, columns, transform) => {
 	const loading = (finished) => {
 		document.querySelector(`#${heading}`).classList[finished ? 'remove' : 'add']('loading');
 	};
 	loading();
-	return fetch(url)
-		.then((response) => response.json())
-		.then((json) => {
-			const rows = getData(json).map((row) => `<td>${row.join('</td><td>')}</td>`);
-			const thead = `<thead><tr><th>${columns.join('</th><th>')}</th></tr></thead>`;
-			const tbody = `<tbody><tr>${rows.join('</tr><tr>')}</tr></tbody>`;
-			document.querySelector(`#${heading} + *`).outerHTML = `<div><table aria-labelledby="${heading}">${thead}${tbody}</table></div>`;
-			loading('finished');
-		})
-		.catch((err) => {
-			if (location.search === '?debug') {
-				console.error(err);
-			}
-			console.warn(`Could not load #${heading}.`);
-			loading('failed');
-		});
+	try {
+		const response = await fetch(url);
+		const json = await response.json();
+		const rows = transform(json).map((row) => `<td>${row.join('</td><td>')}</td>`);
+		const thead = `<thead><tr><th>${columns.join('</th><th>')}</th></tr></thead>`;
+		const tbody = `<tbody><tr>${rows.join('</tr><tr>')}</tr></tbody>`;
+		document.querySelector(`#${heading} + *`).outerHTML = `<div><table aria-labelledby="${heading}">${thead}${tbody}</table></div>`;
+		loading('finished');
+	} catch (err) {
+		if (location.search === '?debug') {
+			console.error(err);
+		}
+		console.warn(`Could not load #${heading}.`);
+		loading('failed');
+	}
 };
 
 enhance('presentations', '/slides.json', ['Talk', 'Links', 'Event', 'Location'], (json) => json.map((talk) => {
