@@ -1,31 +1,42 @@
 console.info('https://en.wikipedia.org/wiki/Progressive_enhancement');
 
 const enhance = async (heading, url, columns, transform) => {
+	const debug = location.search.includes('debug');
 	const loading = (finished, render) => {
 		document.querySelector(`#${heading}`).classList[finished ? 'remove' : 'add']('loading');
 		if (render) {
 			document.querySelector(`#${heading} + *`).outerHTML = render;
 		}
-		if (finished && location.search.includes('debug')) {
+		if (finished && debug) {
 			console.debug(`Loading #${heading} ${finished}.`);
 		}
 	};
+	const render = (json) => {
+		const rows = transform(json).map((row) => `<td>${row.join('</td><td>')}</td>`);
+		const thead = `<thead><tr><th>${columns.join('</th><th>')}</th></tr></thead>`;
+		const tbody = `<tbody><tr>${rows.join('</tr><tr>')}</tr></tbody>`;
+		return `<div><table aria-labelledby="${heading}">${thead}${tbody}</table></div>`;
+	};
 	loading();
-	const preRendered = window.localStorage.getItem(heading);
-	if (preRendered && !location.search.includes('refresh')) {
-		return loading('from cache', preRendered);
+	const preFetched = window.localStorage.getItem(heading);
+	if (preFetched) {
+		try {
+			const json = JSON.parse(preFetched);
+			loading('from localStorage', render(json));
+		} catch (err) {
+			if (debug) {
+				console.error(err);
+				console.debug(`Could not use localStorage for #${heading}.`);
+			}
+		}
 	}
 	try {
 		const response = await fetch(url);
 		const json = await response.json();
-		const rows = transform(json).map((row) => `<td>${row.join('</td><td>')}</td>`);
-		const thead = `<thead><tr><th>${columns.join('</th><th>')}</th></tr></thead>`;
-		const tbody = `<tbody><tr>${rows.join('</tr><tr>')}</tr></tbody>`;
-		const rendered = `<div><table aria-labelledby="${heading}">${thead}${tbody}</table></div>`;
-		window.localStorage.setItem(heading, rendered);
-		loading('from network', rendered);
+		window.localStorage.setItem(heading, JSON.stringify(json));
+		loading('from network', render(json));
 	} catch (err) {
-		if (location.search.includes('debug')) {
+		if (debug) {
 			console.error(err);
 		}
 		console.warn(`Could not load #${heading}.`);
