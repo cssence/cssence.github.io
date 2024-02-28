@@ -90,8 +90,8 @@ tbody tr {
 	color: #000;
 }
 [aria-labelledby="presentations"] tr {
-	grid-template-areas: 'title event' 'links location';
-	grid-template-columns: 1fr 26ch;
+	grid-template-areas: 'title event year' 'links location location';
+	grid-template-columns: 1fr 20ch 4ch;
 }
 [aria-labelledby="presentations"] tr > *:first-child {
 	grid-area: title;
@@ -111,10 +111,14 @@ tbody tr {
 	align-self: end;
 	grid-area: event;
 }
-[aria-labelledby="presentations"] tr > *:last-child {
+[aria-labelledby="presentations"] tr > *:nth-child(4) {
 	grid-area: location;
 }
-[aria-labelledby="presentations"] td:last-child::before {
+[aria-labelledby="presentations"] tr > *:last-child {
+	align-self: end;
+	grid-area: year;
+}
+[aria-labelledby="presentations"] td:nth-child(4)::before {
 	content: '';
 	display: inline-block;
 	width: 2ch;

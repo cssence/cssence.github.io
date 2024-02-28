@@ -44,7 +44,7 @@ const enhance = async (heading, url, columns, transform) => {
 	}
 };
 
-enhance('presentations', '/slides.json', ['Talk', 'Links', 'Event', 'Location'], (json) => json.map((talk) => {
+enhance('presentations', '/slides.json', ['Talk', 'Links', 'Event', 'Location', 'Year'], (json) => json.map((talk) => {
 	const links = talk.links.map((link) => {
 		const url = new URL(link.url);
 		const isSameOrigin = url.host === 'cssence.github.io';
@@ -52,7 +52,7 @@ enhance('presentations', '/slides.json', ['Talk', 'Links', 'Event', 'Location'],
 		const href = isSameOrigin ? url.pathname : link.url;
 		return `<a${rel} href="${href}">${link.name}</a>`;
 	});
-	return [`<em>${talk.title}</em>`, links.join(', '), talk.event, talk.location];
+	return [`<em>${talk.title}</em>`, links.join(', '), talk.event, talk.location, talk.date.split('-')[0]];
 }));
 
 enhance('links', 'https://cv.cssence.com/bookmarks.json', ['Name', 'URL'], (json) => json.map((link) => {

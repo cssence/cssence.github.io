@@ -1,13 +1,13 @@
 {
   "name": "cssence.github.io",
   "homepage": "https://cssence.github.io/",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/cssence/cssence.github.io.git"
   },
   "scripts": {
-    "start": "http-server docs"
+    "start": "http-server -p 8082 ./docs"
   }
 }
