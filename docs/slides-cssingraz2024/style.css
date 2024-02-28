@@ -1,0 +1,307 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+:root {
+	color-scheme: dark light;
+}
+:focus {
+	outline: .125rem solid #d34b6c;
+}
+html {
+	font: 100%/1.5 sans-serif;
+}
+html:not(:target) body {
+	max-inline-size: 70ch;
+	margin-inline: auto;
+}
+body {
+	margin: 0;
+	padding-block: 3.625em;
+	padding-inline: 16px;
+	scroll-behavior: auto;
+}
+@media (prefers-reduce-motion: no-preference) {
+	body {
+		scroll-behavior: smooth;
+	}
+}
+h1,
+h2,
+h3 {
+	line-height: 1.25;
+}
+img {
+	max-inline-size: 100%;
+}
+em,
+i,
+cite {
+	font-style: inherit;
+}
+blockquote {
+	margin-inline: 24px;
+	padding-inline: .875em;
+	border-inline-start: .125rem solid;
+}
+small,
+blockquote footer {
+	display: block;
+	font-size: 87.5%;
+}
+i {
+	display: inline-block;
+	inline-size: 1.333em;
+	text-align: center;
+	filter: grayscale();
+}
+
+#interactive:target :not(a) {
+	cursor: default;
+}
+#interactive:target {
+	background-color: #000;
+	color: #fff;
+}
+#interactive:target body {
+	margin: 0;
+}
+#interactive:target,
+#interactive:target body {
+	block-size: 100dvh;
+	inline-size: 100vw;
+	overflow: hidden;
+}
+#interactive:target small,
+#interactive:target blockquote footer {
+	font-size: 66.667%;
+}
+#interactive:target nav,
+#interactive:target .x {
+	display: none;
+}
+#interactive:target a {
+	color: #d34b6c;
+}
+#interactive:target mark {
+	display: inline-block;
+	background-color: #d34b6c;
+	color: #fff;
+	outline: .125rem solid #d34b6c;
+}
+#interactive:target body > div {
+	position: absolute;
+	inset-block-start: -100dvh;
+	inset-inline-start: 0;
+	block-size: 100dvh;
+	inline-size: 100vw;
+	overflow: hidden;
+	transition: inset .5s ease-in;
+}
+#interactive:target body > div:first-of-type {
+	inset-block-start: 0;
+	inset-inline-start: 100vw;
+}
+#interactive:target body > div:has(h1) {
+	background:
+		linear-gradient(to right, #000 calc(100vw - 70dvh), #0000 100vw) right no-repeat,
+		url(uhrturm.webp) right/auto 100dvh no-repeat
+		#000;
+}
+#interactive:target body > div:has(h1) div {
+	inline-size: auto;
+}
+
+#interactive:target div div {
+	margin-inline: 0;
+	padding-block-start: 20dvh;
+	padding-inline: 16px;
+}
+#interactive:target div div,
+#interactive:target blockquote {
+	inline-size: max-content;
+	max-inline-size: var(--size, 60vw);
+	margin-inline: auto;
+}
+#interactive:target :is(h1, h2, h3) {
+	font-size: 150%;
+}
+#interactive:target :is(h1, h2, h3, ul, li, p, pre) {
+	margin-block: 0 .75em;
+}
+#interactive:target pre {
+	padding-block: .5rem;
+	padding-inline: 1.5rem;
+	background-color: #8884;
+	tab-size: 4;
+}
+#interactive:target :not(pre) > code {
+	background-color: #8884;
+	outline: .125rem solid #8884;
+}
+#interactive:target :is(h2, h3) {
+	text-align: center;
+}
+#interactive:target div > ul {
+	padding-inline-start: 0;
+}
+#interactive:target ul ul li {
+	margin-block-end: 0;
+}
+#interactive:target p {
+	text-align: var(--align, start);
+}
+#interactive:target body > div > p {
+	margin: 0;
+}
+#interactive:target p > img:only-child {
+	position: absolute;
+	block-size: var(--size, 100dvh);
+	margin-inline: auto;
+	inset-block-start: var(--y, 0);
+	inset-inline-start: var(--x, 50vw);
+	transform: translateX(-50%);
+}
+#interactive:target img:not(:only-child) {
+	max-inline-size: none;
+}
+#interactive:target p > i:only-child {
+	font-size: 300%;
+}
+
+#interactive:target body > div[data-current] {
+	inset-block-start: 0;
+	inset-inline-start: 0;
+}
+#interactive:target body > div[data-current] ~ div {
+	inset-block-start: 100dvh;
+}
+#interactive:target b {
+	position: absolute;
+	font-size: 66.667%;
+}
+#interactive:target [data-step] {
+	opacity: 0;
+	transition: opacity .3s ease-in;
+}
+#interactive:target [data-current="1"] :where([data-step="1"]),
+#interactive:target [data-current="2"] :where([data-step="1"], [data-step="2"]),
+#interactive:target [data-current="3"] :where([data-step="1"], [data-step="2"], [data-step="3"]),
+#interactive:target body > div:has(~ [data-current]) [data-step],
+#interactive:target [data-step]:has(~ [data-step="active"]) {
+	opacity: 1;
+}
+@media (orientation: landscape) {
+	#interactive:target {
+		font-size: 4.5dvh;
+	}
+}
+@media (orientation: portrait) {
+	#interactive:target div div,
+	#interactive:target blockquote {
+		max-inline-size: 100%;
+	}
+	#interactive:target img {
+		max-block-size: 100%;
+	}
+	nav {
+		position: fixed !important;
+	}
+}
+
+@media print {
+	html {
+		font-size: 18pt;
+	}
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	html,
+	body {
+		height: 100%;
+	}
+	body > div {
+		block-size: 100%;
+	}
+	body > div {
+		position: relative;
+		block-size: 100%;
+		padding-block-start: 40mm;
+		padding-inline: 30mm;
+	}
+	body > div ~ div {
+		page-break-before: always;
+	}
+	body > div:has(img:only-child) {
+		display: flex;
+		gap: 0 5mm;
+		padding-block-start: 0;
+		padding-inline: 0;
+	}
+	a {
+		color: inherit !important;
+		text-decoration: none;
+	}
+	a::before {
+		content: '🔗' ' ' attr(href);
+		display: block;
+		position: absolute;
+		inset-block-end: 0;
+		inset-inline-start: 0;
+		font-size: 75%;
+	}
+	a::after {
+		content: ' ' '🔗';
+		font-size: 75%;
+	}
+	nav {
+		display: none;
+	}
+}
+
+nav {
+	display: flex;
+	gap: 1em;
+	justify-content: center;
+	position: absolute;
+	z-index: 1;
+	block-size: var(--nav-size);
+	inset-block-start: 0;
+	inset-inline: 0;
+	padding-block: calc(.5em + 1px) .5em;
+	padding-inline: inherit;
+	background-color: Canvas;
+	border-block-end: 1px solid transparent;
+	box-shadow: 0 1px 4px #80808040;
+}
+@media (prefers-color-scheme: dark) {
+	nav {
+		background-image: linear-gradient(#fff2, #fff2);
+		box-shadow: none;
+	}
+}
+nav a {
+	display: inline-block;
+	padding-block: .375em;
+	padding-inline: .5em;
+	background-color: CanvasText;
+	color: Canvas;
+	border: 2px solid transparent;
+	border-radius: .25em;
+	text-decoration: none;
+	forced-color-adjust: none;
+}
+[data-alternate]::after {
+	content: attr(data-alternate);
+	position: relative;
+	top: -1px;
+	margin-inline-start: 1ex;
+	padding: 0 .25em;
+	background: Canvas;
+	border: 1px solid Canvas;
+	border-radius: .25em;
+	color: CanvasText;
+	font-size: 75%;
+}

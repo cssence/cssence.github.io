@@ -2,24 +2,34 @@
 	{
 		"title": "Why you would (not) want to build your own static site generator",
 		"links": [
-			{"url": "https://austriacodes.github.io/vienna.html/#4---tuesday-june-28th", "name": "Intro"},
-			{"url": "https://cssence.github.io/slides-viennahtml2016/", "name": "Slides"},
-			{"url": "https://cssence.com/2016/viennahtml/", "name": "Notes"}
+			{"name": "Intro", "url": "https://austriacodes.github.io/vienna.html/#4---tuesday-june-28th"},
+			{"name": "Slides", "url": "https://cssence.github.io/slides-viennahtml2016/"},
+			{"name": "Notes", "url": "https://cssence.com/2016/viennahtml/"}
 		],
 		"event": "@ViennaHTML",
 		"location": "Vienna, Austria",
-		"year": 2016
+		"date": "2016-06-28"
 	}, {
 		"title": "Diversity in Style",
 		"links": [
-			{"url": "https://www.dotconferences.com/2016/12/matthias-beitl-diversity-in-style", "name": "Intro"},
-			{"url": "https://cssence.github.io/slides-dotcss2016/", "name": "Slides"},
-			{"url": "https://cssence.com/2016/dotcss/", "name": "Notes"},
-			{"url": "https://youtu.be/JaYNrmH7Oyg", "name": "Video"},
-			{"url": "https://cssence.com/2016/diversity-in-style", "name": "Transcript"}
+			{"name": "Intro", "url": "https://www.dotconferences.com/2016/12/matthias-beitl-diversity-in-style"},
+			{"name": "Slides", "url": "https://cssence.github.io/slides-dotcss2016/"},
+			{"name": "Notes", "url": "https://cssence.com/2016/dotcss/"},
+			{"name": "Video", "url": "https://youtu.be/JaYNrmH7Oyg"},
+			{"name": "Transcript", "url": "https://cssence.com/2016/diversity-in-style"}
 		],
 		"event": "@dotCSS",
 		"location": "Paris, France",
-		"year": 2016
+		"date": "2016-12-02"
+	}, {
+		"title": "High Contrast Mode, for real",
+		"links": [
+			{"name": "Intro", "url": "https://www.meetup.com/css-in-graz/events/298298652/"},
+			{"name": "Slides", "url": "https://cssence.github.io/slides-cssingraz2024/"},
+			{"name": "Notes", "url": "https://cssence.com/2024/css-in-graz-3/"}
+		],
+		"event": "#CSS-in-Graz",
+		"location": "Graz, Austria",
+		"date": "2024-12-27"
 	}
 ]

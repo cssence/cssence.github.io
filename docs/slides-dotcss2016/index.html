@@ -3,9 +3,10 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>Diversity in Style | @cssence | dotCSS</title>
-		<meta name="description" content="Websites have become boring - let’s reverse that trend">
+		<title>Diversity in Style | @CSSence | dotCSS</title>
+		<meta name="description" content="Websites have become boring … let’s reverse that trend">
 		<meta name="author" content="Matthias Beitl">
+		<link rel="alternate" href="download.pdf" type="application/pdf" />
 		<style>
 * { box-sizing: inherit; }
 html { box-sizing: border-box; }
@@ -31,7 +32,7 @@ section[id]::before { content: ""; display: block; height: 6em; }
 section:first-child { padding-top: 20vh; min-height: 100vh; }
 nav { position: fixed; top: 0; left: 0; padding: .5em; }
 nav a { display: inline-block; margin-left: 1em; padding: .5em; background: #fff; border: 1px solid #000; border-radius: .25em; color: #000 !important; }
-[data-alternate]::before { content: attr(data-alternate); position: relative; top: -2px; margin-right: 1ex; padding: 0 .25em; background: #000; border: 1px solid #000; border-radius: .25em; color: #fff; font-size: 75%; }
+[data-alternate]::after { content: attr(data-alternate); position: relative; top: -2px; margin-left: 1ex; padding: 0 .25em; background: #000; border: 1px solid #000; border-radius: .25em; color: #fff; font-size: 75%; }
 .no-js [data-alternate="JS"],
 .reveal[role="application"] ~ nav { display: none; }
 .reveal[role="application"] .ref { left: 3% !important; }

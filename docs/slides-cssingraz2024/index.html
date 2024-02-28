@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" id="interactive">
+<head>
+<meta charset="utf-8">
+<title>High Contrast Mode, for real | @CSSence | #CSS-in-Graz</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Make websites more accessible for people that have `forced-colors` turned on.">
+<meta name="author" content="Matthias Zöchling">
+<link rel="alternate" href="download.pdf" type="application/pdf">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div>
+	<div style="--size:80vw">
+		<h1>High Contrast Mode, for real</h1>
+		<p>@CSSence<br><small><i>🗣</i> Matthias Zöchling</small></p>
+		<p>CSS in Graz<br><small><i>🌐</i> Graz, Austria<br><time datetime="2024-02-27"><i>📅</i> 2024-02-27</time></small></p>
+	</div>
+</div>
+
+<div>
+	<div>
+		<h2>What?</h2>
+		<p style="--align:center">(High) Contrast Mode?</p>
+	</div>
+</div>
+
+<div>
+	<div style="--size:80vw">
+		<blockquote>
+			<p>The main feature is that it <strong>limits and controls the range of colors,</strong> making it easier for users to emphasize content and UI in a way that works for them.</p>
+			<p>In other words, they <mark>force colors</mark>.</p>
+			<footer>— <cite><a href="https://polypane.app/blog/forced-colors-explained-a-practical-guide/">polypane.app/blog/forced-colors-[…]-guide</a></cite></footer>
+		</blockquote>
+	</div>
+</div>
+
+<div>
+	<div>
+		<blockquote>
+			<p>Unlike other operating system display modes that invert colors or set a dark mode flag, Windows High Contrast Mode completely overrides authored colors with user-set colors.</p>
+			<footer>— <cite><a href="https://sarahmhigley.com/writing/whcm-quick-tips/">sarahmhigley.com/writing/whcm-quick-tips</a></cite></footer>
+		</blockquote>
+	</div>
+</div>
+
+<div>
+	<p><img src="win10-hcm-off.webp" style="--x:40vw" alt="The Settings Page in Windows 10, navigated to Ease of Access, Vision, High Contrast."></p>
+	<p data-step="1"><img src="win10-hcm-on.webp" style="--x:40vw" alt="The same Settings page, but now High Contrast Mode is turned on: A theme with light text on dark background chosen."></p>
+	<p data-step="2"><img src="win10-hcm-themes.webp" style="--size:30dvh;--x:70vw;--y:40dvh"  alt="The list of four available default themes in Windows 10, including a fifth, created by the user, named ‘Custom’."></p>
+</div>
+
+<div>
+	<div>
+		<h3><i>⚠️</i> Low Contrast</h3>
+		<blockquote>
+			<p>High Contrast Mode is used by some to produce <strong>low contrast</strong> on the screen.</p>
+			<footer>— <cite><a href="https://adrianroselli.com/2021/02/whcm-and-system-colors.html">adrianroselli.com/2021/02/whcm-and-system-colors</a></cite></footer>
+		</blockquote>
+	</div>
+</div>
+
+<div>
+	<div>
+		<h2>Why?</h2>
+		<blockquote>
+			<p>[Microsoft] has said that upwards of <mark>4%</mark> of their users do [force colors].</p>
+			<footer>— <cite><a href="https://www.youtube.com/watch?v=yYGLEy7CiT0">youtube.com «Forced Colors &amp; CSS»</a>, by&nbsp;Kevin&nbsp;Powell</cite></footer>
+		</blockquote>
+	</div>
+</div>
+
+<div>
+	<div style="--size:80vw">
+		<h2>How?</h2>
+		<ul>
+			<li>First rule of ARIA: <strong>Don’t use ARIA.</strong><b>*</b></li>
+			<li data-step="2">First rule of High Contrast Mode:<br><strong data-step="3">Don’t design for High Contrast Mode.</strong></li>
+		</ul>
+		<p data-step="1"><small>*) …, use native HTML instead.</small></p>
+	</div>
+</div>
+
+<div>
+	<div>
+		<h3>OS</h3>
+		<ul>
+			<li>Windows 7-10: <strong>High Contrast Mode.</strong></li>
+			<li>Windows 11: <strong>Contrast Themes.</strong></li>
+			<li data-step="1">Mac OS: It’s complicated, but no.</li>
+			<li data-step="2">Linux: No?</li>
+		</ul>
+	</div>
+</div>
+
+<div>
+	<div>
+		<h3>Browsers</h3>
+		<p style="--align:center">Support is good.<b data-step="1">*</b></p>
+		<p data-step="2" style="--align:center"><small>*) With Safari being the exception.</small></p>
+	</div>
+</div>
+
+<div>
+	<div style="--size:80vw">
+		<blockquote>
+			<p>There is a ton of prior content discussing Windows High Contrast Mode (WHCM) and web content. The catch is that content covers four (five?) different implementations across more than a decade of support: Internet Explorer, Edge, the other Edge, Edge plus IE aliasing, and hardly anything on Firefox. Which means much of it no longer applies.</p>
+			<footer>— <cite><a href="https://adrianroselli.com/2021/02/whcm-and-system-colors.html">adrianroselli.com/2021/02/whcm-and-system-colors</a></cite></footer>
+		</blockquote>
+	</div>
+</div>
+
+<div>
+	<div>
+		<h2>For real!</h2>
+		<p style="--align:center"><i>🥁</i></p>
+	</div>
+</div>
+
+<div>
+	<div>
+		<h3>What happens… (1/2)</h3>
+		<ul>
+			<li>Colors are replaced.
+				<ul>
+					<li>Not SVG’s fill/stroke.</li>
+					<li>Not <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/system-color">CSS system colors</a>.</li>
+				</ul>
+			</li>
+			<li data-step="1">Border colors are replaced.</li>
+			<li data-step="2">Outline colors are replaced.</li>
+		</ul>
+	</div>
+</div>
+
+<div>
+	<div>
+		<h3>What happens… (2/2)</h3>
+		<ul>
+			<li>Background colors are gone.</li>
+			<li data-step="1">Background images are …, well:
+				<ul>
+					<li><code>url()</code> based images are kept,</li>
+					<li>but gradients are gone.</li>
+				</ul>
+			</li>
+			<li data-step="2">Box &amp; text shadows are gone.</li>
+		</ul>
+	</div>
+</div>
+
+<div>
+	<div style="--size:80vw">
+		<h3>The media query</h3>
+		<pre><code>@media (forced-colors: active<b>*</b>) {
+	…
+}</code></pre>
+		<p style="--align:center">*) none | active</p>
+	</div>
+</div>
+
+<div>
+	<div style="--size:80vw">
+		<h3>The other media query</h3>
+		<pre><code>@media (prefers-contrast: more<b>*</b>) {
+	…
+}</code></pre>
+		<p style="--align:center"><b>*</b>) no-preference | more | less | custom</p>
+	</div>
+</div>
+
+<div>
+	<div style="--size:80vw">
+		<h3>The future media query?</h3>
+		<pre><code>@media (prefers-contrast: <del>forced</del><ins>custom</ins>) {
+	…
+}</code></pre>
+		<p style="--align:center"><small>— <a href="https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/">blogs.windows.com/msedgedev/2020/09/17/styling[…]-forced-colors</a></small></p>
+	</div>
+</div>
+
+<div>
+	<div style="--size:80vw">
+		<h3>The retired media query</h3>
+		<pre><code>@media (-ms-high-contrast: active) {
+	…
+}</code></pre>
+	</div>
+</div>
+
+<div>
+	<div style="--size:80vw">
+		<h3>Combining media queries</h3>
+		<pre><code>@media (forced-colors: active) and
+       (prefers-color-scheme: dark) {
+	…
+}</code></pre>
+	</div>
+</div>
+
+<div>
+	<div>
+		<h2>The ToDo List (1/2)</h2>
+		<ul>
+			<li><a href="https://adrianroselli.com/2021/02/whcm-and-system-colors.html#CSS4">CSS system colors</a></li>
+			<li><code>:focus</code></li>
+			<li><code>:hover</code>, <code>:active</code>, etc.</li>
+			<li>Whitespace &amp; borders</li>
+			<li>Buttons vs. links</li>
+		</ul>
+	</div>
+</div>
+
+<div>
+	<div style="--size:80vw">
+		<h3 data-step="1">Transparent is a color</h3>
+		<pre><code>:focus {
+	<del>outline: none;</del>
+	<span data-step="2">outline: 0.125rem solid transparent;</span>
+	box-shadow: 0 0 0.25rem #bada55;
+}</code></pre>
+	</div>
+</div>
+
+<div>
+	<div>
+		<h2>The ToDo List (2/2)</h2>
+		<ul>
+			<li>Icons</li>
+			<li><code>opacity</code></li>
+			<li data-step="1">The Media Query</li>
+			<li data-step="2">The Backplate</li>
+			<li data-step="3">The Override</li>
+		</ul>
+	</div>
+</div>
+
+<div>
+	<div>
+		<h3>The Backplate</h3>
+		<p style="--align:right"><img src="win-hcm-backplate.webp" alt="The same picture of a cat two times, left and right. The text ‘Hello Kitty!’ has been placed on top of each. However, the right one also shows a black background behind the text, hiding parts of the cat for better legibility. This background is called a backplate in High Contrast Mode."><br>Image on the right has backplate applied.</p>
+	</div>
+</div>
+
+<div>
+	<div style="--size:80vw">
+		<h3>The Override</h3>
+		<pre><code>.element {
+	forced-color-adjust: none<b>*</b>;
+}</code></pre>
+		<p style="--align:center">*) auto | none | preserve-parent-color</p>
+	</div>
+</div>
+
+<div>
+	<div>
+		<h2 class="x">Outro</h2>
+		<h3><i>⚠️</i> Testing</h3>
+		<p>Always test multiple themes, especially …</p>
+		<ul>
+			<li>1× “Light on Dark” and</li>
+			<li>1× “Dark on Light”.</li>
+		</ul>
+	</div>
+</div>
+
+<div>
+	<div style="--size:80vw">
+		<h3><i>⚠️</i> color(s)</h3>
+		<pre><code>@media (forced-<u>colors</u>: active) {
+	…
+}
+.element {
+	forced-<u>color</u>-adjust: none;
+}</code></pre>
+	</div>
+</div>
+
+<div>
+	<div>
+		<hr>
+		<p style="--align:center">You’ve made it this far!</p>
+		<p style="--align:center"><i>🙌</i></p>
+	</div>
+</div>
+
+<nav>
+	<a href="download.pdf" data-alternate="PDF">Download</a>
+	<a href="#interactive" data-alternate="JS">Interactive</a>
+</nav>
+<script src="slide.js"></script>
+</body>
+</html>

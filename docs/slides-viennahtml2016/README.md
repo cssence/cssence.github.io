@@ -8,10 +8,10 @@ It’s a brave new world of static site generators out there. So why would you w
 
 ViennaHTML [Meetup #4](https://austriacodes.github.io/vienna.html#4---tuesday-june-28th) 2016  
 @ViennaHTML  
-[https://austriacodes.github.io/vienna.html](http://viennahtml.github.io/)
+[https://austriacodes.github.io/vienna.html](https://viennahtml.github.io/)
 
 ## Author/Speaker
 
 Matthias Beitl  
-@cssence  
-[https://cssence.com/](http://cssence.com/)
+@CSSence  
+https://cssence.com/
