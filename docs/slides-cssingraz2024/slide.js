@@ -1,5 +1,5 @@
 const init = () => {
-	const slides = document.querySelectorAll('body > div');
+	const slides = document.querySelectorAll('main > div');
 	const slideMap = [];
 	slides.forEach((slide, index) => {
 		slideMap[index] = slide.querySelectorAll('[data-step]').length;
