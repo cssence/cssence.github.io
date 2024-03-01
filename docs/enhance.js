@@ -15,7 +15,7 @@ const enhance = async (heading, url, columns, transform) => {
 		const rows = transform(json).map((row) => `<td>${row.join('</td><td>')}</td>`);
 		const thead = `<thead><tr><th>${columns.join('</th><th>')}</th></tr></thead>`;
 		const tbody = `<tbody><tr>${rows.join('</tr><tr>')}</tr></tbody>`;
-		return `<div><table aria-labelledby="${heading}">${thead}${tbody}</table></div>`;
+		return `<div tabindex="0"><table aria-labelledby="${heading}">${thead}${tbody}</table></div>`;
 	};
 	loading();
 	const preFetched = window.localStorage.getItem(heading);
