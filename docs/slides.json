@@ -26,10 +26,10 @@
 		"links": [
 			{"name": "Intro", "url": "https://www.meetup.com/css-in-graz/events/298298652/"},
 			{"name": "Slides", "url": "https://cssence.github.io/slides-cssingraz2024/"},
-			{"name": "Notes", "url": "https://cssence.com/2024/css-in-graz-3/"}
+			{"name": "Notes", "url": "https://cssence.com/2024/css-in-graz/"}
 		],
 		"event": "#CSS-in-Graz",
 		"location": "Graz, Austria",
-		"date": "2024-12-27"
+		"date": "2024-02-27"
 	}
 ]

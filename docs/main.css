@@ -20,8 +20,7 @@ body {
 	margin: 0;
 	padding-block: 1em 3em;
 	padding-inline: .75em;
-	overflow-x: auto;
-	overflow-y: scroll;
+	overflow: hidden scroll;
 	scroll-behavior: auto;
 }
 @media (prefers-reduce-motion: no-preference) {
@@ -133,12 +132,12 @@ tbody tr {
 	align-self: end;
 	grid-area: year;
 }
-[aria-labelledby="presentations"] td:nth-child(4)::before {
+[aria-labelledby="presentations"] :is(th, td):nth-child(4)::before {
 	content: '';
 	display: inline-block;
-	inline-size: 2ch;
-	block-size: 1.125ch;
-	mask: no-repeat url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"%3E%3Cpath fill="%23000" d="M15.938 32c0 0-9.938-14.062-9.938-20.062 0-11.813 9.938-11.938 9.938-11.938s10.062 0.125 10.062 11.875c0 6.187-10.062 20.125-10.062 20.125zM16 6c-2.209 0-4 1.791-4 4s1.791 4 4 4 4-1.791 4-4-1.791-4-4-4z"%3E%3C/path%3E%3C/svg%3E') -0.0625ch center / 1.125ch 1.125ch;
+	inline-size: 1rem;
+	block-size: .75rem;
+	mask: no-repeat url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"%3E%3Cpath fill="%23000" d="M15.938 32c0 0-9.938-14.062-9.938-20.062 0-11.813 9.938-11.938 9.938-11.938s10.062 0.125 10.062 11.875c0 6.187-10.062 20.125-10.062 20.125zM16 6c-2.209 0-4 1.791-4 4s1.791 4 4 4 4-1.791 4-4-1.791-4-4-4z"%3E%3C/path%3E%3C/svg%3E') -0.0625ch bottom / .625rem .625rem;
 	background-color: currentColor;
 	forced-color-adjust: preserve-parent-color;
 	/* Shoutout to Broccolidry on iconmoon.io for the map marker icon <3 */

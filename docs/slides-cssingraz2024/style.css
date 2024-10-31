@@ -10,14 +10,15 @@ html {
 	color-scheme: dark light;
 	font: 100%/1.5 sans-serif;
 }
-html:not(:target) :is(nav, main) {
+html:not(:has(button[aria-pressed="true"])) :is(nav, main) {
 	max-inline-size: 68ch;
 	margin-inline: auto;
 }
 body {
 	margin: 0;
-	padding-block: 1em 3em;
-	padding-inline: .75em;
+	padding-block: 1rem 3rem;
+	padding-inline: .75rem;
+	overflow: hidden scroll;
 	scroll-behavior: auto;
 }
 @media (prefers-reduce-motion: no-preference) {
@@ -27,33 +28,84 @@ body {
 }
 nav {
 	display: flex;
-	gap: .5em;
-	justify-content: start;
-	margin-block-end: 3em;
+	gap: .5rem;
+	justify-content: center;
+	position: relative;
+	z-index: 1;
+	margin-block-end: 3rem;
+	transition: opacity .3s ease-in-out;
 }
-nav a {
+nav :is(a, button) {
+	appearance: none;
 	display: inline-block;
-	padding-block: .375em;
-	padding-inline: .5em;
+	position: relative;
+	padding-block: .375rem;
+	padding-inline: .5rem 3.875rem;
 	background-color: CanvasText;
 	color: Canvas;
 	border: 2px solid;
-	border-radius: .375em;
+	border-radius: .375rem;
+	font: inherit;
 	text-decoration: none;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: pre;
 	forced-color-adjust: none;
 }
-[data-alternate]::after {
-	content: attr(data-alternate);
-	position: relative;
-	inset-block-start: -1px;
-	margin-inline-start: 1ex;
-	padding: 0 .25em;
-	background: Canvas;
-	border: 1px solid Canvas;
+nav :is(a, button)::after {
+	position: absolute;
+	block-size: 1.5em;
+	inline-size: 4em;
+	inset-block-end: 50%;
+	inset-inline-end: .5rem;
+	margin-block-end: -.75em;
+	padding-inline: 1.25em 0;
+	background-color: Canvas;
 	border-radius: .25em;
 	color: CanvasText;
 	font-size: 75%;
+	text-align: center;
+	white-space: normal;
 }
+nav a::after {
+	content: ' PDF';
+}
+nav button::after {
+	content: ' OFF';
+	border-radius: 1em;
+}
+nav button[aria-pressed="true"]::after {
+	content: ' ON';
+	padding-inline: 0 1.25em;
+}
+nav :is(a, button)::before {
+	content: '';
+	position: absolute;
+	z-index: 1;
+	inset-block-end: 50%;
+	inset-inline-end: 2.5em;
+	margin-block-end: -.375em;
+	block-size: .75em;
+	aspect-ratio: 1;
+	background-color: CanvasText;
+}
+nav a::before {
+	mask: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjEyMCAtODQwIDcyMCA3MjAiPjxwYXRoIGQ9Ik00ODAtMzIwIDI4MC01MjBsNTYtNTggMTA0IDEwNHYtMzI2aDgwdjMyNmwxMDQtMTA0IDU2IDU4LTIwMCAyMDBaTTI0MC0xNjBxLTMzIDAtNTYuNS0yMy41VDE2MC0yNDB2LTEyMGg4MHYxMjBoNDgwdi0xMjBoODB2MTIwcTAgMzMtMjMuNSA1Ni41VDcyMC0xNjBIMjQwWiIvPjwvc3ZnPg==') center/contain no-repeat;
+}
+nav button::before {
+	border-radius: 50%;
+	transition: inset-inline .1s ease;
+}
+nav button[aria-pressed="true"]::before {
+	inset-inline-end: .75em;
+}
+@media (max-width: 22.49em) {
+	nav :is(a, button) {
+		font-size: 87.5%;
+		line-height: calc(23 / 14);
+	}
+}
+
 h1,
 h2,
 h3 {
@@ -88,105 +140,105 @@ hr {
 	border-block-end: 1px dotted;
 }
 
-#interactive:target :not(a) {
+html:has(button[aria-pressed="true"]) nav {
+	opacity: 0;
+}
+html:has(button[aria-pressed="true"]) :is(nav:focus-within, nav:hover) {
+	opacity: 1;
+}
+html:has(button[aria-pressed="true"]) main :not(a) {
 	cursor: default;
 }
-#interactive:target {
+html:has(button[aria-pressed="true"]) {
 	background-color: #000;
 	color: #fff;
 }
-#interactive:target body {
-	margin: 0;
-}
-#interactive:target,
-#interactive:target body {
+html:has(button[aria-pressed="true"]) body {
 	block-size: 100dvh;
-	inline-size: 100vw;
 	overflow: hidden;
 }
-#interactive:target small,
-#interactive:target blockquote footer {
+html:has(button[aria-pressed="true"]) small,
+html:has(button[aria-pressed="true"]) blockquote footer {
 	font-size: 66.667%;
 }
-#interactive:target nav,
-#interactive:target .x {
+html:has(button[aria-pressed="true"]) .x {
 	display: none;
 }
-#interactive:target a {
+html:has(button[aria-pressed="true"]) main a {
 	color: #d34b6c;
 }
-#interactive:target mark {
+html:has(button[aria-pressed="true"]) mark {
 	display: inline-block;
 	background-color: #d34b6c;
 	color: #fff;
 	outline: .125rem solid #d34b6c;
 }
-#interactive:target main > div {
+html:has(button[aria-pressed="true"]) main {
 	position: absolute;
-	inset-block-start: -100dvh;
-	inset-inline-start: 0;
+	inset: 0;
+	overflow: hidden scroll;
+	scroll-snap-type: block mandatory;
+}
+html:has(button[aria-pressed="true"]) main > div {
+	position: relative;
 	block-size: 100dvh;
-	inline-size: 100vw;
 	overflow: hidden;
+	scroll-snap-align: start;
 	transition: inset .5s ease-in;
 }
-#interactive:target main > div:first-of-type {
-	inset-block-start: 0;
-	inset-inline-start: 100vw;
-}
-#interactive:target main > div:has(h1) {
+html:has(button[aria-pressed="true"]) main > div:has(h1) {
 	background:
 		linear-gradient(to right, #000 calc(100vw - 70dvh), #0000 100vw) right no-repeat,
 		url(uhrturm.webp) right/auto 100dvh no-repeat
 		#000;
 }
-#interactive:target main > div:has(h1) div {
+html:has(button[aria-pressed="true"]) main > div:has(h1) div {
 	inline-size: auto;
 }
 
-#interactive:target div div {
+html:has(button[aria-pressed="true"]) div div {
 	margin-inline: 0;
 	padding-block-start: 20dvh;
 	padding-inline: 16px;
 }
-#interactive:target div div,
-#interactive:target blockquote {
+html:has(button[aria-pressed="true"]) div div,
+html:has(button[aria-pressed="true"]) blockquote {
 	inline-size: max-content;
 	max-inline-size: var(--size, 60vw);
 	margin-inline: auto;
 }
-#interactive:target :is(h1, h2, h3) {
+html:has(button[aria-pressed="true"]) :is(h1, h2, h3) {
 	font-size: 150%;
 }
-#interactive:target :is(h1, h2, h3, ul, li, p, pre) {
+html:has(button[aria-pressed="true"]) :is(h1, h2, h3, ul, li, p, pre) {
 	margin-block: 0 .75em;
 }
-#interactive:target pre {
-	padding-block: .5rem;
-	padding-inline: 1.5rem;
+html:has(button[aria-pressed="true"]) pre {
+	padding-block: .5em;
+	padding-inline: 1.5em;
 	background-color: #8884;
 	tab-size: 4;
 }
-#interactive:target :not(pre) > code {
+html:has(button[aria-pressed="true"]) :not(pre) > code {
 	background-color: #8884;
-	outline: .125rem solid #8884;
+	outline: .125em solid #8884;
 }
-#interactive:target :is(h2, h3) {
+html:has(button[aria-pressed="true"]) :is(h2, h3) {
 	text-align: center;
 }
-#interactive:target div > ul {
+html:has(button[aria-pressed="true"]) div > ul {
 	padding-inline-start: 0;
 }
-#interactive:target ul ul li {
+html:has(button[aria-pressed="true"]) ul ul li {
 	margin-block-end: 0;
 }
-#interactive:target p {
+html:has(button[aria-pressed="true"]) p {
 	text-align: var(--align, start);
 }
-#interactive:target main > div > p {
+html:has(button[aria-pressed="true"]) main > div > p {
 	margin: 0;
 }
-#interactive:target p > img:only-child {
+html:has(button[aria-pressed="true"]) p > img:only-child {
 	position: absolute;
 	block-size: var(--size, 100dvh);
 	margin-inline: auto;
@@ -194,47 +246,44 @@ hr {
 	inset-inline-start: var(--x, 50vw);
 	transform: translateX(-50%);
 }
-#interactive:target img:not(:only-child) {
-	max-inline-size: none;
+html:has(button[aria-pressed="true"]) img:not(:only-child) {
+	max-inline-size: 100%;
 }
-#interactive:target p > i:only-child {
+html:has(button[aria-pressed="true"]) p > i:only-child {
 	font-size: 300%;
 }
-
-#interactive:target main > div[data-current] {
-	inset-block-start: 0;
-	inset-inline-start: 0;
-}
-#interactive:target main > div[data-current] ~ div {
-	inset-block-start: 100dvh;
-}
-#interactive:target b {
-	position: absolute;
+html:has(button[aria-pressed="true"]) b {
+	position: relative;
+	inset-block-start: -.5em;
 	font-size: 66.667%;
 }
-#interactive:target [data-step] {
+/* html:has(button[aria-pressed="true"]) [data-step] {
+	transition: opacity .3s ease-in;
+} */
+html:has(button[aria-pressed="true"]) [data-current] [data-step] {
 	opacity: 0;
+}
+html:has(button[aria-pressed="true"]) [data-current="1"] :is([data-step="1"]),
+html:has(button[aria-pressed="true"]) [data-current="2"] :is([data-step="1"], [data-step="2"]),
+html:has(button[aria-pressed="true"]) [data-current="3"] :is([data-step="1"], [data-step="2"], [data-step="3"]),
+html:has(button[aria-pressed="true"]) main > div:has(~ [data-current]) [data-step],
+html:has(button[aria-pressed="true"]) [data-step]:has(~ [data-step="active"]) {
+	opacity: 1;
 	transition: opacity .3s ease-in;
 }
-#interactive:target [data-current="1"] :where([data-step="1"]),
-#interactive:target [data-current="2"] :where([data-step="1"], [data-step="2"]),
-#interactive:target [data-current="3"] :where([data-step="1"], [data-step="2"], [data-step="3"]),
-#interactive:target main > div:has(~ [data-current]) [data-step],
-#interactive:target [data-step]:has(~ [data-step="active"]) {
-	opacity: 1;
-}
 @media (orientation: landscape) {
-	#interactive:target {
+	html:has(button[aria-pressed="true"]) main {
 		font-size: 4.5dvh;
 	}
 }
 @media (orientation: portrait) {
-	#interactive:target div div,
-	#interactive:target blockquote {
+	html:has(button[aria-pressed="true"]) div div,
+	html:has(button[aria-pressed="true"]) blockquote {
 		max-inline-size: 100%;
 	}
-	#interactive:target img {
+	html:has(button[aria-pressed="true"]) img {
 		max-block-size: 100%;
+		max-inline-size: none;
 	}
 }
 
@@ -248,15 +297,12 @@ hr {
 	}
 	html,
 	body,
-	main {
-		height: 100%;
-	}
+	main,
 	main > div {
 		block-size: 100%;
 	}
 	main > div {
 		position: relative;
-		block-size: 100%;
 		padding-block-start: 40mm;
 		padding-inline: 30mm;
 	}

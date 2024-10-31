@@ -6,7 +6,7 @@ const init = () => {
 	});
 	let current = 0;
 	const slide = (dir) => {
-		if (slideMap[current]) {
+		if (slideMap[current] && dir === 1) {
 			const currentStep = parseInt(slides[current].getAttribute('data-current'), 10);
 			if (currentStep + dir >= 0 && currentStep + dir <= slideMap[current]) {
 				slides[current].setAttribute('data-current', '' + (currentStep + dir));
@@ -17,24 +17,31 @@ const init = () => {
 		slides[current].removeAttribute('data-current');
 		current += dir;
 		slides[current].setAttribute('data-current', dir === -1 ? '' + slideMap[current] : '0');
+		const animate = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+		slides[current].scrollIntoView({ behavior: animate ? 'smooth' : 'instant' });
+		// history.pushState({}, window.title, `#${slides[current].id}`);
 	};
 	const navigate = (event) => {
+		event.preventDefault();
 		const dir = {'ArrowUp': -1, 'ArrowLeft': -1, 'ArrowRight': 1, 'ArrowDown': 1}[event.key];
 		if (dir) slide(dir);
 	};
-	const act = (event) => {
-		const target = '#interactive';
-		if (location.hash === target) {
+	document.querySelector('nav').innerHTML += ' <button aria-pressed="false">Interactive</button>';
+	document.querySelector('nav button').addEventListener('click', (event) => {
+		const newState = event.target.getAttribute('aria-pressed') === 'false';
+		event.target.setAttribute('aria-pressed', newState);
+		if (newState === true) {
+			const id = location.hash ? location.hash.slice(1) : '';
+			const target = parseInt(id, 10);
+			if (target == id) current = target;
 			slides[current].setAttribute('data-current', '0');
 			window.addEventListener('keydown', navigate);
-		} else if (event && new URL(event.oldURL).hash === target) {
+			slides[current].scrollIntoView({ behavior: 'instant' });
+		} else {
 			slides[current].removeAttribute('data-current');
-			current = 0;
 			window.removeEventListener('keydown', navigate);
 		}
-	};
-	act();
-	window.addEventListener("hashchange", act);
+	});
 };
 if (document.readyState !== 'loading') {
 	init();

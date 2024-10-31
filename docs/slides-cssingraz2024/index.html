@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" id="interactive">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>High Contrast Mode, for real | @CSSence | #CSS-in-Graz</title>
@@ -10,10 +10,10 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav><a href="download.pdf" data-alternate="PDF">Download</a> <a href="#interactive" data-alternate="JS">Interactive</a></nav>
+<nav><a href="download.pdf">Download</a> </nav>
 <main>
 
-<div>
+<div id="0">
 	<div style="--size:80vw">
 		<h1>High Contrast Mode, for real</h1>
 		<p>@CSSence<br><small><i>🗣</i> Matthias Zöchling</small></p>
@@ -21,14 +21,14 @@
 	</div>
 </div>
 
-<div>
+<div id="1">
 	<div>
 		<h2>What?</h2>
 		<p style="--align:center">(High) Contrast Mode?</p>
 	</div>
 </div>
 
-<div>
+<div id="2">
 	<div style="--size:80vw">
 		<blockquote>
 			<p>The main feature is that it <strong>limits and controls the range of colors,</strong> making it easier for users to emphasize content and UI in a way that works for them.</p>
@@ -38,7 +38,7 @@
 	</div>
 </div>
 
-<div>
+<div id="3">
 	<div>
 		<blockquote>
 			<p>Unlike other operating system display modes that invert colors or set a dark mode flag, Windows High Contrast Mode completely overrides authored colors with user-set colors.</p>
@@ -47,13 +47,13 @@
 	</div>
 </div>
 
-<div>
+<div id="4">
 	<p><img src="win10-hcm-off.webp" style="--x:40vw" alt="The Settings Page in Windows 10, navigated to Ease of Access, Vision, High Contrast."></p>
 	<p data-step="1"><img src="win10-hcm-on.webp" style="--x:40vw" alt="The same Settings page, but now High Contrast Mode is turned on: A theme with light text on dark background chosen."></p>
 	<p data-step="2"><img src="win10-hcm-themes.webp" style="--size:30dvh;--x:70vw;--y:40dvh"  alt="The list of four available default themes in Windows 10, including a fifth, created by the user, named ‘Custom’."></p>
 </div>
 
-<div>
+<div id="5">
 	<div>
 		<h3><i>⚠️</i> Low Contrast</h3>
 		<blockquote>
@@ -63,7 +63,7 @@
 	</div>
 </div>
 
-<div>
+<div id="6">
 	<div>
 		<h2>Why?</h2>
 		<blockquote>
@@ -73,7 +73,7 @@
 	</div>
 </div>
 
-<div>
+<div id="7">
 	<div style="--size:80vw">
 		<h2>How?</h2>
 		<ul>
@@ -84,7 +84,7 @@
 	</div>
 </div>
 
-<div>
+<div id="8">
 	<div>
 		<h3>OS</h3>
 		<ul>
@@ -96,7 +96,7 @@
 	</div>
 </div>
 
-<div>
+<div id="9">
 	<div>
 		<h3>Browsers</h3>
 		<p style="--align:center">Support is good.<b data-step="1">*</b></p>
@@ -104,7 +104,7 @@
 	</div>
 </div>
 
-<div>
+<div id="10">
 	<div style="--size:80vw">
 		<blockquote>
 			<p>There is a ton of prior content discussing Windows High Contrast Mode (WHCM) and web content. The catch is that content covers four (five?) different implementations across more than a decade of support: Internet Explorer, Edge, the other Edge, Edge plus IE aliasing, and hardly anything on Firefox. Which means much of it no longer applies.</p>
@@ -113,14 +113,14 @@
 	</div>
 </div>
 
-<div>
+<div id="11">
 	<div>
 		<h2>For real!</h2>
 		<p style="--align:center"><i>🥁</i></p>
 	</div>
 </div>
 
-<div>
+<div id="12">
 	<div>
 		<h3>What happens… (1/2)</h3>
 		<ul>
@@ -136,7 +136,7 @@
 	</div>
 </div>
 
-<div>
+<div id="13">
 	<div>
 		<h3>What happens… (2/2)</h3>
 		<ul>
@@ -152,7 +152,7 @@
 	</div>
 </div>
 
-<div>
+<div id="14">
 	<div style="--size:80vw">
 		<h3>The media query</h3>
 		<pre><code>@media (forced-colors: active<b>*</b>) {
@@ -162,17 +162,17 @@
 	</div>
 </div>
 
-<div>
+<div id="15">
 	<div style="--size:80vw">
 		<h3>The other media query</h3>
 		<pre><code>@media (prefers-contrast: more<b>*</b>) {
 	…
 }</code></pre>
-		<p style="--align:center"><b>*</b>) no-preference | more | less | custom</p>
+		<p style="--align:center">*) no-preference | more | less | custom</p>
 	</div>
 </div>
 
-<div>
+<div id="16">
 	<div style="--size:80vw">
 		<h3>The future media query?</h3>
 		<pre><code>@media (prefers-contrast: <del>forced</del><ins>custom</ins>) {
@@ -182,7 +182,7 @@
 	</div>
 </div>
 
-<div>
+<div id="17">
 	<div style="--size:80vw">
 		<h3>The retired media query</h3>
 		<pre><code>@media (-ms-high-contrast: active) {
@@ -191,7 +191,7 @@
 	</div>
 </div>
 
-<div>
+<div id="18">
 	<div style="--size:80vw">
 		<h3>Combining media queries</h3>
 		<pre><code>@media (forced-colors: active) and
@@ -201,7 +201,7 @@
 	</div>
 </div>
 
-<div>
+<div id="19">
 	<div>
 		<h2>The ToDo List (1/2)</h2>
 		<ul>
@@ -214,7 +214,7 @@
 	</div>
 </div>
 
-<div>
+<div id="20">
 	<div style="--size:80vw">
 		<h3 data-step="1">Transparent is a color</h3>
 		<pre><code>:focus {
@@ -225,7 +225,7 @@
 	</div>
 </div>
 
-<div>
+<div id="21">
 	<div>
 		<h2>The ToDo List (2/2)</h2>
 		<ul>
@@ -238,14 +238,14 @@
 	</div>
 </div>
 
-<div>
+<div id="22">
 	<div>
 		<h3>The Backplate</h3>
-		<p style="--align:right"><img src="win-hcm-backplate.webp" alt="The same picture of a cat two times, left and right. The text ‘Hello Kitty!’ has been placed on top of each. However, the right one also shows a black background behind the text, hiding parts of the cat for better legibility. This background is called a backplate in High Contrast Mode."><br>Image on the right has backplate applied.</p>
+		<p style="--align:center"><img src="win-hcm-backplate.webp" alt="The same picture of a cat two times, left and right. The text ‘Hello Kitty!’ has been placed on top of each. However, the right one also shows a black background behind the text, hiding parts of the cat for better legibility. This background is called a backplate in High Contrast Mode."><br>Image on the right has backplate applied.</p>
 	</div>
 </div>
 
-<div>
+<div id="23">
 	<div style="--size:80vw">
 		<h3>The Override</h3>
 		<pre><code>.element {
@@ -255,7 +255,7 @@
 	</div>
 </div>
 
-<div>
+<div id="24">
 	<div>
 		<h2 class="x">Outro</h2>
 		<h3><i>⚠️</i> Testing</h3>
@@ -267,7 +267,7 @@
 	</div>
 </div>
 
-<div>
+<div id="25">
 	<div style="--size:80vw">
 		<h3><i>⚠️</i> color(s)</h3>
 		<pre><code>@media (forced-<u>colors</u>: active) {
@@ -279,7 +279,7 @@
 	</div>
 </div>
 
-<div>
+<div id="26">
 	<div>
 		<hr>
 		<p style="--align:center">You’ve made it this far!</p>
@@ -288,6 +288,6 @@
 </div>
 
 </main>
-<script src="slide.js"></script>
+<script type="module" src="slide.js"></script>
 </body>
 </html>
