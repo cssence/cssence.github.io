@@ -8,6 +8,6 @@
     "url": "git://github.com/cssence/cssence.github.io.git"
   },
   "scripts": {
-    "start": "http-server -p 8082 ./docs"
+    "start": "http-server -c-1 -p 8082 ./docs"
   }
 }

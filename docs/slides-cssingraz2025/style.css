@@ -1,0 +1,383 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+:focus {
+	outline: 2px solid AccentColor;
+}
+html {
+	color-scheme: dark light;
+	font: 100%/1.5 sans-serif;
+}
+html:not(:has(button[aria-pressed="true"])) :is(nav, main) {
+	max-inline-size: 68ch;
+	margin-inline: auto;
+}
+body {
+	margin: 0;
+	padding-block: 1rem 3rem;
+	padding-inline: .75rem;
+	overflow: hidden scroll;
+	scroll-behavior: auto;
+}
+@media (prefers-reduce-motion: no-preference) {
+	body {
+		scroll-behavior: smooth;
+	}
+}
+nav {
+	display: flex;
+	gap: .5rem;
+	justify-content: center;
+	position: relative;
+	z-index: 1;
+	margin-block-end: 3rem;
+	transition: opacity .3s ease-in-out;
+}
+nav :is(a, button) {
+	appearance: none;
+	display: inline-block;
+	position: relative;
+	padding-block: .375rem;
+	padding-inline: .5rem 3.875rem;
+	background-color: CanvasText;
+	color: Canvas;
+	border: 2px solid;
+	border-radius: .375rem;
+	font: inherit;
+	text-decoration: none;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: pre;
+	forced-color-adjust: none;
+}
+nav :is(a, button)::after {
+	position: absolute;
+	block-size: 1.5em;
+	inline-size: 4em;
+	inset-block-end: 50%;
+	inset-inline-end: .5rem;
+	margin-block-end: -.75em;
+	padding-inline: 1.25em 0;
+	background-color: Canvas;
+	border-radius: .25em;
+	color: CanvasText;
+	font-size: 75%;
+	text-align: center;
+	white-space: normal;
+}
+nav a::after {
+	content: ' PDF';
+}
+nav button::after {
+	content: ' OFF';
+	border-radius: 1em;
+}
+nav button[aria-pressed="true"]::after {
+	content: ' ON';
+	padding-inline: 0 1.25em;
+}
+nav :is(a, button)::before {
+	content: '';
+	position: absolute;
+	z-index: 1;
+	inset-block-end: 50%;
+	inset-inline-end: 2.5em;
+	margin-block-end: -.375em;
+	block-size: .75em;
+	aspect-ratio: 1;
+	background-color: CanvasText;
+}
+nav a::before {
+	mask: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjEyMCAtODQwIDcyMCA3MjAiPjxwYXRoIGQ9Ik00ODAtMzIwIDI4MC01MjBsNTYtNTggMTA0IDEwNHYtMzI2aDgwdjMyNmwxMDQtMTA0IDU2IDU4LTIwMCAyMDBaTTI0MC0xNjBxLTMzIDAtNTYuNS0yMy41VDE2MC0yNDB2LTEyMGg4MHYxMjBoNDgwdi0xMjBoODB2MTIwcTAgMzMtMjMuNSA1Ni41VDcyMC0xNjBIMjQwWiIvPjwvc3ZnPg==') center/contain no-repeat;
+}
+nav button::before {
+	border-radius: 50%;
+	transition: inset-inline .1s ease;
+}
+nav button[aria-pressed="true"]::before {
+	inset-inline-end: .75em;
+}
+@media (max-width: 22.49em) {
+	nav :is(a, button) {
+		font-size: 87.5%;
+		line-height: calc(23 / 14);
+	}
+}
+
+h1,
+h2,
+h3 {
+	line-height: 1.25;
+}
+img {
+	max-inline-size: 100%;
+}
+em,
+i,
+cite {
+	font-style: inherit;
+}
+blockquote {
+	margin-inline: 24px;
+	padding-inline: .875em;
+	border-inline-start: .125rem solid;
+}
+small,
+blockquote footer {
+	display: block;
+	font-size: 87.5%;
+}
+i {
+	display: inline-block;
+	inline-size: 1.333em;
+	text-align: center;
+	filter: grayscale();
+}
+hr {
+	border: none;
+	border-block-end: 1px dotted;
+}
+
+html:has(button[aria-pressed="true"]) nav {
+	opacity: 0;
+}
+html:has(button[aria-pressed="true"]) :is(nav:focus-within, nav:hover) {
+	opacity: 1;
+}
+html:has(button[aria-pressed="true"]) main :not(a) {
+	cursor: default;
+}
+html:has(button[aria-pressed="true"]) {
+	background-color: #000;
+	color: #fff;
+}
+html:has(button[aria-pressed="true"]) body {
+	block-size: 100dvh;
+	overflow: hidden;
+}
+html:has(button[aria-pressed="true"]) small,
+html:has(button[aria-pressed="true"]) blockquote footer {
+	font-size: 66.667%;
+}
+html:has(button[aria-pressed="true"]) .x {
+	display: none;
+}
+html:has(button[aria-pressed="true"]) main a {
+	color: #d34b6c;
+}
+html:has(button[aria-pressed="true"]) mark {
+	display: inline-block;
+	background-color: #d34b6c;
+	color: #fff;
+	outline: .125rem solid #d34b6c;
+}
+html:has(button[aria-pressed="true"]) main {
+	position: absolute;
+	inset: 0;
+	overflow: hidden scroll;
+	scroll-snap-type: block mandatory;
+}
+html:has(button[aria-pressed="true"]) main > div {
+	position: relative;
+	block-size: 100dvh;
+	overflow: hidden;
+	scroll-snap-align: start;
+	transition: inset .5s ease-in;
+}
+html:has(button[aria-pressed="true"]) main > div:has(h1) {
+	background:
+		linear-gradient(to right, #000 calc(100vw - 70dvh), #0000 100vw) right no-repeat,
+		url(uhrturm.webp) right/auto 100dvh no-repeat
+		#000;
+}
+html:has(button[aria-pressed="true"]) main > div:has(h1) div {
+	inline-size: auto;
+}
+
+html:has(button[aria-pressed="true"]) div div {
+	margin-inline: 0;
+	padding-block-start: 20dvh;
+	padding-inline: 16px;
+}
+html:has(button[aria-pressed="true"]) div div,
+html:has(button[aria-pressed="true"]) blockquote {
+	inline-size: max-content;
+	max-inline-size: var(--size, 60vw);
+	margin-inline: auto;
+}
+html:has(button[aria-pressed="true"]) :is(h1, h2, h3) {
+	font-size: 150%;
+}
+html:has(button[aria-pressed="true"]) :is(h1, h2, h3, ul, li, p, pre) {
+	margin-block: 0 .75em;
+}
+html:has(button[aria-pressed="true"]) pre {
+	padding-block: .5em;
+	padding-inline: 1.5em;
+	/* background-color: #8884; */
+	tab-size: var(--tab-size, 4);
+}
+/* html:has(button[aria-pressed="true"]) :not(pre) > code {
+	background-color: #8884;
+	outline: .125em solid #8884;
+} */
+html:has(button[aria-pressed="true"]) :is(h2, h3) {
+	text-align: center;
+}
+html:has(button[aria-pressed="true"]) h2 span {
+	color: #888a;
+	font-size: 66.667%;
+}
+html:has(button[aria-pressed="true"]) h2 span span {
+	display: none;
+}
+html:has(button[aria-pressed="true"]) h2 strong {
+	display: block;
+	text-transform: uppercase;
+}
+html:has(button[aria-pressed="true"]) div > ul {
+	padding-inline-start: 0;
+}
+html:has(button[aria-pressed="true"]) ul ul li {
+	margin-block-end: 0;
+}
+html:has(button[aria-pressed="true"]) p {
+	text-align: var(--align, start);
+}
+html:has(button[aria-pressed="true"]) main > div > p {
+	margin: 0;
+}
+html:has(button[aria-pressed="true"]) p > img:only-child {
+	position: absolute;
+	block-size: var(--size, 100dvh);
+	margin-inline: auto;
+	inset-block-start: var(--y, 0);
+	inset-inline-start: var(--x, 50vw);
+	transform: translateX(-50%);
+}
+html:has(button[aria-pressed="true"]) img:not(:only-child) {
+	max-inline-size: 100%;
+}
+html:has(button[aria-pressed="true"]) p > i:only-child {
+	font-size: 300%;
+}
+html:has(button[aria-pressed="true"]) b {
+	position: relative;
+	inset-block-start: -.5em;
+	font-size: 66.667%;
+}
+/* html:has(button[aria-pressed="true"]) [data-step] {
+	transition: opacity .3s ease-in;
+} */
+html:has(button[aria-pressed="true"]) [data-current] [data-step] {
+	opacity: 0;
+}
+html:has(button[aria-pressed="true"]) [data-current="1"] :is([data-step="1"]),
+html:has(button[aria-pressed="true"]) [data-current="2"] :is([data-step="1"], [data-step="2"]),
+html:has(button[aria-pressed="true"]) [data-current="3"] :is([data-step="1"], [data-step="2"], [data-step="3"]),
+html:has(button[aria-pressed="true"]) [data-current="4"] :is([data-step="1"], [data-step="2"], [data-step="3"], [data-step="4"]),
+html:has(button[aria-pressed="true"]) [data-current="5"] :is([data-step="1"], [data-step="2"], [data-step="3"], [data-step="4"], [data-step="5"]),
+html:has(button[aria-pressed="true"]) main > div:has(~ [data-current]) [data-step],
+html:has(button[aria-pressed="true"]) [data-step]:has(~ [data-step="active"]) {
+	opacity: 1;
+	transition: opacity .3s ease-in;
+}
+@media (orientation: landscape) {
+	html:has(button[aria-pressed="true"]) main {
+		font-size: 4.5dvh;
+	}
+}
+@media (orientation: portrait) {
+	html:has(button[aria-pressed="true"]) div div,
+	html:has(button[aria-pressed="true"]) blockquote {
+		max-inline-size: 100%;
+	}
+	html:has(button[aria-pressed="true"]) img {
+		max-block-size: 100%;
+		max-inline-size: none;
+	}
+}
+
+html:has(button[aria-pressed="true"]) {
+	.effect1 {
+		inline-size: 60vw;
+
+		p:nth-child(2) {
+			code {
+				position: absolute;
+				margin-inline-start: 2ch;
+				mask: linear-gradient(to right, #000, #0004);
+				color: #8888;
+				white-space: nowrap;
+			}
+		}
+		p:nth-child(3) {
+			code {
+				display: block;
+				mask: linear-gradient(to bottom, #0004, #000, #0004);
+
+				span {
+					color: #888a;
+				}
+			}
+		}
+	}
+	.effect2 {
+		inline-size: 60vw;
+
+		img {
+			float: right;
+			max-block-size: 30vh;
+			max-inline-size: 30vw;
+		}
+	}
+	.effectX {
+		img {
+			background-color: #000;
+		}
+	}
+	.effectZ {
+		p {
+			font-size: 200%;
+		}
+	}
+}
+
+@media print {
+	html {
+		font-size: 18pt;
+	}
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	html,
+	body,
+	main,
+	main > div {
+		block-size: 100%;
+	}
+	main > div {
+		position: relative;
+		padding-block-start: 40mm;
+		padding-inline: 30mm;
+	}
+	main > div ~ div {
+		page-break-before: always;
+	}
+	main > div:has(img:only-child) {
+		display: flex;
+		gap: 0 5mm;
+		padding-block-start: 0;
+		padding-inline: 0;
+	}
+	a {
+		color: inherit !important;
+		text-decoration: none;
+	}
+	nav {
+		display: none;
+	}
+}
