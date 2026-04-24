@@ -2,6 +2,7 @@ console.info('https://en.wikipedia.org/wiki/Progressive_enhancement');
 
 const enhance = async (heading, url, columns, transform) => {
 	const debug = location.search.includes('debug');
+	if (debug && location.search.includes('noscript')) return;
 	const loading = (finished, render) => {
 		document.querySelector(`#${heading}`).classList[finished ? 'remove' : 'add']('loading');
 		if (render) {
